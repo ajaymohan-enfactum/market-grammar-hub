@@ -9,7 +9,7 @@ interface SidebarProps {
   onOpenSearch: () => void;
 }
 
-export function BrandSidebar({ activeSection, onNavigate }: SidebarProps) {
+export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: SidebarProps) {
   const { theme, toggle } = useTheme();
 
   return (
@@ -20,6 +20,18 @@ export function BrandSidebar({ activeSection, onNavigate }: SidebarProps) {
         <div className="mt-1 text-[10px] font-medium tracking-[0.15em] uppercase text-muted">
           Brandbook
         </div>
+      </div>
+
+      {/* Search trigger */}
+      <div className="px-3 mb-3">
+        <button
+          onClick={onOpenSearch}
+          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg bg-elevated text-[13px] text-muted hover:text-foreground transition-colors"
+        >
+          <Search size={14} />
+          <span className="flex-1 text-left">Search…</span>
+          <kbd className="text-[10px] font-mono-data border border-border rounded px-1.5 py-0.5">⌘K</kbd>
+        </button>
       </div>
 
       {/* Nav */}
