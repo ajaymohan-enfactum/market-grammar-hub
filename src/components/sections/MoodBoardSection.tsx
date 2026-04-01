@@ -143,11 +143,11 @@ export function MoodBoardSection() {
             <div
               key={card.label}
               className="rounded-xl relative overflow-hidden flex items-end"
-              style={{ aspectRatio: "4/3", background: card.bg }}
+              style={{ aspectRatio: "3/2" }}
             >
-              {card.overlay}
+              <img src={card.img} alt={card.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               <span
-                className="relative z-10 text-[12px] font-semibold text-white p-3 w-full"
+                className="relative z-10 text-[12px] font-semibold text-white p-3 w-full bg-gradient-to-t from-black/60 to-transparent"
                 style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
                 {card.label}
