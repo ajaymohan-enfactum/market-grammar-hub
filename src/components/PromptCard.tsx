@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, ThumbsUp, ThumbsDown } from "lucide-react";
 import posthog from "posthog-js";
 
 export type ToolType = "Claude" | "Midjourney" | "v0" | "Gamma" | "ChatGPT" | "Gemini" | "Ideogram" | "Flux" | "DALL-E" | "Lovable" | "Canva";
@@ -61,6 +61,7 @@ interface PromptCardProps {
 export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardProps) {
   const [copied, setCopied] = useState(false);
   const [pulsing, setPulsing] = useState(false);
+  const [rating, setRating] = useState<"up" | "down" | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const tools = Array.isArray(tool) ? tool : [tool];
 
@@ -78,6 +79,16 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
     return () => window.removeEventListener("prompt-pulse", handlePulse);
   }, [id]);
 
+  const deriveMetadata = () => {
+    const isLight = id?.includes("light") ?? false;
+    const section = isLight ? "light_presentations" : "dark_presentations";
+    let page = "image_generation";
+    if (id?.startsWith("prompt-copy")) page = "copy_templates";
+    else if (id?.startsWith("prompt-design")) page = "design_generation";
+    else if (id?.startsWith("prompt-deck")) page = "deck_generation";
+    return { section, page };
+  };
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(prompt);
@@ -94,14 +105,7 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
     setCopied(true);
     if (id) addRecentlyCopied(id, title, tools[0]);
 
-    // Determine section and page from prompt id
-    const isLight = id?.includes("light") ?? false;
-    const section = isLight ? "light_presentations" : "dark_presentations";
-    let page = "image_generation";
-    if (id?.startsWith("prompt-copy")) page = "copy_templates";
-    else if (id?.startsWith("prompt-design")) page = "design_generation";
-    else if (id?.startsWith("prompt-deck")) page = "deck_generation";
-
+    const { section, page } = deriveMetadata();
     posthog.capture("prompt_copied", {
       prompt_title: title,
       tool: tools[0].toLowerCase().replace("-", ""),
@@ -110,6 +114,21 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
     });
 
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleRate = (value: "up" | "down") => {
+    const next = rating === value ? null : value;
+    setRating(next);
+    if (next) {
+      const { section, page } = deriveMetadata();
+      posthog.capture("prompt_rated", {
+        rating: next,
+        prompt_title: title,
+        tool: tools[0].toLowerCase().replace("-", ""),
+        section,
+        page,
+      });
+    }
   };
 
   const charCount = prompt.length;
@@ -132,18 +151,40 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
             </span>
           ))}
         </div>
-        <button
-          onClick={handleCopy}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-md border text-[12px] font-medium transition-all duration-200 ${
-            copied
-              ? "border-brand-emerald text-brand-emerald bg-brand-emerald/10"
-              : "border-border text-muted hover:text-foreground hover:border-foreground/20"
-          }`}
-          style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
-        >
-          {copied ? <Check size={12} /> : <Copy size={12} />}
-          {copied ? "Copied ✓" : "Copy Prompt"}
-        </button>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5">
+            <button
+              onClick={() => handleRate("up")}
+              className={`p-1 rounded transition-colors duration-150 ${
+                rating === "up" ? "text-primary" : "text-muted hover:text-foreground"
+              }`}
+              aria-label="Thumbs up"
+            >
+              <ThumbsUp size={13} fill={rating === "up" ? "currentColor" : "none"} />
+            </button>
+            <button
+              onClick={() => handleRate("down")}
+              className={`p-1 rounded transition-colors duration-150 ${
+                rating === "down" ? "text-primary" : "text-muted hover:text-foreground"
+              }`}
+              aria-label="Thumbs down"
+            >
+              <ThumbsDown size={13} fill={rating === "down" ? "currentColor" : "none"} />
+            </button>
+          </div>
+          <button
+            onClick={handleCopy}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-md border text-[12px] font-medium transition-all duration-200 ${
+              copied
+                ? "border-brand-emerald text-brand-emerald bg-brand-emerald/10"
+                : "border-border text-muted hover:text-foreground hover:border-foreground/20"
+            }`}
+            style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+          >
+            {copied ? <Check size={12} /> : <Copy size={12} />}
+            {copied ? "Copied ✓" : "Copy Prompt"}
+          </button>
+        </div>
       </div>
 
       {/* Body */}
