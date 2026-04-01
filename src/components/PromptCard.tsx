@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Copy, Check } from "lucide-react";
 
 export type ToolType = "Claude" | "Midjourney" | "v0" | "Gamma" | "ChatGPT" | "Gemini" | "Ideogram" | "Flux" | "DALL-E" | "Lovable" | "Canva";
@@ -31,6 +31,24 @@ function highlightVariables(text: string) {
   });
 }
 
+// Recently copied prompts stored in localStorage
+const RECENT_KEY = "enfactum-recently-copied";
+
+export function getRecentlyCopied(): { id: string; title: string; tool: string }[] {
+  try {
+    return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function addRecentlyCopied(id: string, title: string, tool: string) {
+  const recent = getRecentlyCopied().filter((r) => r.id !== id);
+  recent.unshift({ id, title, tool });
+  localStorage.setItem(RECENT_KEY, JSON.stringify(recent.slice(0, 3)));
+  window.dispatchEvent(new CustomEvent("recent-copied-updated"));
+}
+
 interface PromptCardProps {
   tool: ToolType | ToolType[];
   title: string;
@@ -41,16 +59,53 @@ interface PromptCardProps {
 
 export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardProps) {
   const [copied, setCopied] = useState(false);
+  const [pulsing, setPulsing] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const tools = Array.isArray(tool) ? tool : [tool];
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(prompt);
+  // Listen for pulse events (from Quick Create card clicks)
+  useEffect(() => {
+    if (!id) return;
+    function handlePulse(e: Event) {
+      const detail = (e as CustomEvent).detail;
+      if (detail === id) {
+        setPulsing(true);
+        setTimeout(() => setPulsing(false), 600);
+      }
+    }
+    window.addEventListener("prompt-pulse", handlePulse);
+    return () => window.removeEventListener("prompt-pulse", handlePulse);
+  }, [id]);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(prompt);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = prompt;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
     setCopied(true);
+    if (id) addRecentlyCopied(id, title, tools[0]);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const charCount = prompt.length;
+
   return (
-    <div id={id} className="bg-card border border-border rounded-[10px] overflow-hidden">
+    <div
+      ref={cardRef}
+      id={id}
+      className={`bg-card border rounded-[10px] overflow-hidden scroll-mt-24 transition-all duration-300 ${
+        pulsing ? "ring-2 ring-primary ring-offset-2 ring-offset-background" : "border-border"
+      }`}
+      style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border">
         <div className="flex items-center gap-2">
@@ -82,6 +137,9 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
           <pre className="font-mono-data text-[12px] text-text-secondary leading-[1.7] whitespace-pre-wrap">
             {highlightVariables(prompt)}
           </pre>
+        </div>
+        <div className="mt-2 text-[11px] font-mono-data text-muted">
+          {charCount} characters
         </div>
       </div>
     </div>
