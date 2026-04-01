@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 import { PromptCard } from "../PromptCard";
 
-const tabs = ["Midjourney", "Ideogram", "Gemini", "DALL-E", "Claude"] as const;
+const tabs = ["Midjourney", "Ideogram", "Gemini", "DALL-E", "Claude", "Flux"] as const;
 
 export function PromptsImageSection() {
   const [activeTab, setActiveTab] = useState<string>("Midjourney");
@@ -283,6 +283,56 @@ You are a visual art director for Enfactum, a B2B market intelligence firm. Bran
 <user_prompt>
 Art direct a 1:1 social media square. White field, vivid electric blue geometric anchor with spectral color accents, mathematical precision, zero organic forms.
 </user_prompt>`}
+          />
+        </div>
+      )}
+
+      {activeTab === "Flux" && (
+        <div className="space-y-4">
+          <Eyebrow className="mb-2">Dark Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-flux-dark-linkedin"
+            tool="Flux"
+            title="LinkedIn Post Background — Structural Dark"
+            whenToUse="LinkedIn carousel posts, article headers, and banner backgrounds in dark mode."
+            prompt={`Abstract geometric composition on deep midnight navy background #0A0F1E. Intersecting angular steel and concrete planes. Single sharp electric blue #0057FF accent light casting hard-edged shadows. Brutalist minimalism, architectural precision. No people, no text, no logos, no warm colors, no gradients, no organic shapes. Photorealistic, 8k. 16:9 aspect ratio.`}
+          />
+          <PromptCard
+            id="prompt-flux-dark-deck"
+            tool="Flux"
+            title="Deck Cover — Prismatic Dark"
+            whenToUse="Presentation deck covers and title slide backgrounds in dark mode."
+            prompt={`Low-angle view of massive brutalist architecture, intersecting dark steel and matte concrete planes. Deep midnight blue #0A0F1E atmosphere. Single prismatic light refraction in electric blue #0057FF striking a glass surface. Cold corporate precision, structural focus, no windows, no people, no signage. 8k render, high contrast shadows. 16:9 aspect ratio.`}
+          />
+          <PromptCard
+            id="prompt-flux-dark-social"
+            tool="Flux"
+            title="Social Square — Grid Dark"
+            whenToUse="Instagram posts and square format social media graphics in dark mode."
+            prompt={`Macro shot of a precision geometric grid on dark graphite surface. Mathematical grid lines in electric blue #0057FF at 20% opacity. Single sharp directional light source, deep contrast. Structural minimalism, data infrastructure aesthetic. No text, no people, no warm tones, no gradients, no organic forms. 1:1 aspect ratio.`}
+          />
+
+          <Eyebrow className="mt-8 mb-2">Light Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-flux-light-linkedin"
+            tool="Flux"
+            title="LinkedIn Post Background — Spectral Light"
+            whenToUse="LinkedIn carousel posts, article headers, and banner backgrounds in light mode."
+            prompt={`Prismatic color field on clean white canvas. Intersecting geometric planes in electric blue #0057FF and full-spectrum gradients. Sharp angular forms, non-representational abstract composition. No people, no text, no logos, no dark backgrounds, no organic shapes. High chroma saturation, precision geometry, B2B editorial style. 16:9 aspect ratio.`}
+          />
+          <PromptCard
+            id="prompt-flux-light-deck"
+            tool="Flux"
+            title="Deck Cover — Color Architecture"
+            whenToUse="Presentation deck covers and title slide backgrounds in light mode."
+            prompt={`Color planes intersecting at sharp angles on white ground plane. Vivid electric blue #0057FF and clean spectral forms. Non-representational abstract architecture, bold single focal point. No people, no signage, no dark backgrounds, no soft gradients. High contrast color blocks, B2B editorial precision. 16:9 aspect ratio.`}
+          />
+          <PromptCard
+            id="prompt-flux-light-social"
+            tool="Flux"
+            title="Social Square — Color Grid"
+            whenToUse="Instagram posts and square format social media graphics in light mode."
+            prompt={`Abstract color grid on clean white background. Vivid electric blue #0057FF and full-spectrum accent planes. Mathematical grid lines, sharp angular forms, non-representational. No text, no people, no dark backgrounds, no organic shapes. Bold color contrast, minimal depth, editorial precision. 1:1 aspect ratio.`}
           />
         </div>
       )}
