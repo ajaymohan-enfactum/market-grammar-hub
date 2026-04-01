@@ -90,6 +90,9 @@ function BrandBookContent() {
           <PromptsDesignSection />
           <PromptsDeckSection />
           <PromptsComplianceSection />
+          <SonicIdentitySection />
+          <AIComplianceSection />
+          <EthicalAISection />
           <UIComponentsSection />
           <DataVizSection />
           <InteractionStatesSection />
