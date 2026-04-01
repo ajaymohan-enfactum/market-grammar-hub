@@ -18,6 +18,9 @@ import { PromptsCopySection } from "@/components/sections/PromptsCopySection";
 import { PromptsDesignSection } from "@/components/sections/PromptsDesignSection";
 import { PromptsDeckSection } from "@/components/sections/PromptsDeckSection";
 import { PromptsComplianceSection } from "@/components/sections/PromptsComplianceSection";
+import { SonicIdentitySection } from "@/components/sections/SonicIdentitySection";
+import { AIComplianceSection } from "@/components/sections/AIComplianceSection";
+import { EthicalAISection } from "@/components/sections/EthicalAISection";
 import { UIComponentsSection } from "@/components/sections/UIComponentsSection";
 import { DataVizSection } from "@/components/sections/DataVizSection";
 import { InteractionStatesSection } from "@/components/sections/InteractionStatesSection";
@@ -87,6 +90,9 @@ function BrandBookContent() {
           <PromptsDesignSection />
           <PromptsDeckSection />
           <PromptsComplianceSection />
+          <SonicIdentitySection />
+          <AIComplianceSection />
+          <EthicalAISection />
           <UIComponentsSection />
           <DataVizSection />
           <InteractionStatesSection />

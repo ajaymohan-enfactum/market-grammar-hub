@@ -12,7 +12,7 @@ export function SectionWrapper({ id, children, alt = false }: { id: string; chil
   );
 }
 
-export function SectionHeader({ title, subtitle, action }: { title: string; subtitle: string; action?: ReactNode }) {
+export function SectionHeader({ title, subtitle, action }: { title: ReactNode; subtitle: string; action?: ReactNode }) {
   return (
     <div className="mb-10">
       <div className="flex items-start justify-between gap-4">

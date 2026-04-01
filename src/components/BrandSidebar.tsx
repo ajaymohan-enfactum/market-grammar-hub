@@ -51,7 +51,7 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto px-3 pb-4">
         {navSections.map((section) => {
-          const isVault = section.group === "AI Prompt Vault";
+          const isVault = section.group === "AI Prompt Vault" || section.group === "Governance";
           return (
             <div key={section.group} className={`mb-4 ${isVault ? "relative" : ""}`}>
               {/* Vault glow background */}
