@@ -1,14 +1,21 @@
 import {
   BookOpen, Palette, Type, Eye, Image, Play, MessageSquare,
-  Linkedin, Layout, BarChart2, MousePointer, Globe, FileText, Sparkles
+  Linkedin, Layout, BarChart2, MousePointer, Globe, FileText, Sparkles,
+  Zap, PenLine, Paintbrush, Presentation, ShieldCheck
 } from "lucide-react";
 
 export interface NavSection {
   group: string;
-  items: { id: string; label: string; icon: React.ElementType }[];
+  items: { id: string; label: string; icon: React.ElementType; accent?: boolean }[];
 }
 
 export const navSections: NavSection[] = [
+  {
+    group: "Home",
+    items: [
+      { id: "quick-create", label: "Quick Create", icon: Zap, accent: true },
+    ],
+  },
   {
     group: "Identity",
     items: [
@@ -34,6 +41,16 @@ export const navSections: NavSection[] = [
     ],
   },
   {
+    group: "AI Prompt Vault",
+    items: [
+      { id: "prompts-image", label: "Image Generation", icon: Paintbrush, accent: true },
+      { id: "prompts-copy", label: "Copy Templates", icon: PenLine, accent: true },
+      { id: "prompts-design", label: "Design Generation", icon: Layout, accent: true },
+      { id: "prompts-deck", label: "Deck Generation", icon: Presentation, accent: true },
+      { id: "prompts-compliance", label: "Brand Compliance", icon: ShieldCheck, accent: true },
+    ],
+  },
+  {
     group: "Product",
     items: [
       { id: "ui-components", label: "UI Components", icon: Layout },
@@ -44,7 +61,7 @@ export const navSections: NavSection[] = [
   {
     group: "Application",
     items: [
-      { id: "sea-market", label: "SEA Market Adaptation", icon: Globe },
+      { id: "sea-market", label: "SEA Adaptation", icon: Globe },
       { id: "ppt-templates", label: "PPT Templates", icon: FileText },
     ],
   },

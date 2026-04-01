@@ -17,7 +17,7 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
       {/* Logo */}
       <div className="px-5 pt-6 pb-4">
         <EnfactumLogo size={22} />
-        <div className="mt-1 text-[9px] font-semibold tracking-[0.15em] uppercase text-muted">
+        <div className="mt-1 text-[9px] font-semibold tracking-[0.1em] uppercase text-muted">
           Brandbook
         </div>
       </div>
@@ -50,8 +50,8 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
                   onClick={() => onNavigate(item.id)}
                   className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-[13px] font-medium relative transition-all duration-150 ${
                     active
-                      ? "bg-[hsl(220_100%_50%/0.08)] text-primary border-l-2 border-primary"
-                      : "text-text-secondary hover:bg-elevated hover:text-foreground border-l-2 border-transparent"
+                      ? "bg-[hsl(220_100%_50%/0.06)] text-primary border-l-2 border-primary"
+                      : `${item.accent ? "text-primary" : "text-text-secondary"} hover:bg-[hsl(220_100%_50%/0.04)] hover:text-foreground border-l-2 border-transparent`
                   }`}
                   style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
                 >
@@ -64,8 +64,8 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
         ))}
       </nav>
 
-      {/* Theme toggle */}
-      <div className="px-4 py-4 border-t border-border">
+      {/* Bottom */}
+      <div className="px-4 py-4 border-t border-border space-y-2">
         <button
           onClick={toggle}
           className="flex items-center gap-2 text-[13px] text-text-secondary hover:text-foreground transition-all duration-300"
@@ -74,6 +74,7 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
           {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
           <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
         </button>
+        <div className="text-[10px] font-mono-data text-muted">v1.0 — 2026</div>
       </div>
     </aside>
   );
