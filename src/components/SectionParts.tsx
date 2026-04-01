@@ -1,4 +1,5 @@
-import { type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
+import { Copy, Check } from "lucide-react";
 
 export function SectionWrapper({ id, children }: { id: string; children: ReactNode }) {
   return (
@@ -17,5 +18,22 @@ export function SectionHeader({ title, subtitle, action }: { title: string; subt
       </div>
       <p className="mt-3 text-lg text-text-secondary leading-relaxed max-w-[720px]">{subtitle}</p>
     </div>
+  );
+}
+
+/** Clickable token that copies its value to clipboard. Use for hex codes, easing curves, durations, etc. */
+export function CopyToken({ value, className = "" }: { value: string; className?: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      onClick={() => { navigator.clipboard.writeText(value); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
+      className={`group/token inline-flex items-center gap-1 font-mono-data hover:text-primary transition-colors cursor-pointer ${className}`}
+      title={`Copy: ${value}`}
+    >
+      {value}
+      {copied
+        ? <Check size={11} className="text-brand-emerald shrink-0" />
+        : <Copy size={11} className="opacity-0 group-hover/token:opacity-60 transition-opacity shrink-0" />}
+    </button>
   );
 }

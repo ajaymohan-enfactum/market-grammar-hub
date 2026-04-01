@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
 
 export function MotionSection() {
   return (
@@ -18,7 +18,7 @@ export function MotionSection() {
         ].map((c) => (
           <div key={c.name} className="bg-surface border border-border rounded-lg p-5">
             <div className="text-[13px] font-semibold text-foreground mb-1">{c.name}</div>
-            <div className="font-mono-data text-[11px] text-muted mb-3">{c.curve}</div>
+            <CopyToken value={c.curve} className="text-[11px] text-muted mb-3" />
             <div className="relative h-3 bg-elevated rounded-full mb-3">
               <div className={`absolute top-0.5 w-3 h-2 rounded-full bg-primary ${c.anim}`} />
             </div>
@@ -50,7 +50,7 @@ export function MotionSection() {
             ].map(([token, dur, usage, width]) => (
               <tr key={token as string} className="border-b border-border last:border-b-0">
                 <td className="p-3 font-medium text-foreground">{token}</td>
-                <td className="p-3 font-mono-data text-muted">{dur}</td>
+                <td className="p-3"><CopyToken value={dur as string} className="text-[13px] text-muted" /></td>
                 <td className="p-3 text-text-secondary">{usage}</td>
                 <td className="p-3">
                   <div className="h-2 bg-primary rounded-full" style={{ width: `${width}%`, minWidth: width ? 4 : 0 }} />

@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
 import { useTheme } from "../ThemeProvider";
 
 export function TypographySection() {
@@ -54,7 +54,7 @@ export function TypographySection() {
                 ].map(([scale, spec]) => (
                   <tr key={scale} className="border-b border-border last:border-b-0">
                     <td className="p-3 font-medium text-foreground">{scale}</td>
-                    <td className="p-3 font-mono-data text-muted">{spec}</td>
+                    <td className="p-3"><CopyToken value={spec as string} className="text-[13px] text-muted" /></td>
                   </tr>
                 ))}
               </tbody>

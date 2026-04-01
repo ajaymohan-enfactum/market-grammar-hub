@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
 
 interface SwatchProps {
   name: string;
@@ -12,7 +12,7 @@ function ColorSwatch({ name, hex, usage }: SwatchProps) {
       <div className="h-[120px]" style={{ backgroundColor: hex }} />
       <div className="p-3">
         <div className="text-[13px] font-semibold text-foreground">{name}</div>
-        <div className="text-[12px] font-mono-data text-muted mt-0.5">{hex}</div>
+        <CopyToken value={hex} className="text-[12px] text-muted mt-0.5" />
         <div className="text-[11px] text-text-secondary mt-1">{usage}</div>
       </div>
     </div>
