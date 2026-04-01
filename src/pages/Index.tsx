@@ -29,7 +29,6 @@ function BrandBookContent() {
     el?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  // ⌘K shortcut
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -62,7 +61,7 @@ function BrandBookContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background transition-colors duration-300" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
       <BrandSidebar activeSection={activeSection} onNavigate={handleNavigate} onOpenSearch={() => setSearchOpen(true)} />
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} onNavigate={handleNavigate} />
       <main className="ml-60">

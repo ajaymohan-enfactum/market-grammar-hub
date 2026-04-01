@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function PPTTemplatesSection() {
   return (
@@ -9,7 +9,7 @@ export function PPTTemplatesSection() {
       />
 
       {/* Slide types */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Slide Templates</h3>
+      <Eyebrow className="mb-4">Slide Templates</Eyebrow>
       <div className="grid grid-cols-2 gap-4 mb-10">
         {[
           { type: "Title Slide", desc: "Centered wordmark, subtitle in Body-Large, dark midnight background. Minimal." },
@@ -19,15 +19,15 @@ export function PPTTemplatesSection() {
           { type: "Quote Slide", desc: "IBM Plex Serif pull quote, centered. Attribution below. Minimal background." },
           { type: "Closing Slide", desc: "Wordmark, CTA, and contact info. Same structure as title slide." },
         ].map((s) => (
-          <div key={s.type} className="bg-brand-midnight rounded-lg p-6 h-[160px] flex flex-col justify-between">
-            <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-brand-neutral-400">{s.type}</div>
+          <div key={s.type} className="bg-brand-midnight rounded-xl p-6 h-[160px] flex flex-col justify-between">
+            <Eyebrow className="text-brand-neutral-400">{s.type}</Eyebrow>
             <p className="text-[12px] text-brand-neutral-200 leading-relaxed">{s.desc}</p>
           </div>
         ))}
       </div>
 
       {/* Rules */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="brand-card p-6">
         <h4 className="text-[15px] font-semibold text-foreground mb-3">Presentation Rules</h4>
         <ul className="space-y-2">
           {[

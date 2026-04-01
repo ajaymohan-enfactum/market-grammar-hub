@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken, Eyebrow } from "../SectionParts";
 
 interface SwatchProps {
   name: string;
@@ -8,7 +8,7 @@ interface SwatchProps {
 
 function ColorSwatch({ name, hex, usage }: SwatchProps) {
   return (
-    <div className="bg-surface border border-border rounded-lg overflow-hidden">
+    <div className="brand-card overflow-hidden">
       <div className="h-[120px]" style={{ backgroundColor: hex }} />
       <div className="p-3">
         <div className="text-[13px] font-semibold text-foreground">{name}</div>
@@ -28,7 +28,7 @@ export function ColorSystemSection() {
       />
 
       {/* Brand Blues */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Brand Blues</h3>
+      <Eyebrow className="mb-4">Brand Blues</Eyebrow>
       <div className="grid grid-cols-5 gap-3 mb-10">
         <ColorSwatch name="Brand Blue" hex="#0057FF" usage="Primary accent, Buttons, Links" />
         <ColorSwatch name="Electric Blue" hex="#2979FF" usage="Highlights, Selected text" />
@@ -38,7 +38,7 @@ export function ColorSystemSection() {
       </div>
 
       {/* Neutrals */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Neutrals</h3>
+      <Eyebrow className="mb-4">Neutrals</Eyebrow>
       <div className="grid grid-cols-7 gap-3 mb-10">
         <ColorSwatch name="Midnight" hex="#0A0F1E" usage="Primary dark bg" />
         <ColorSwatch name="Neutral-800" hex="#0D1020" usage="Code blocks" />
@@ -50,7 +50,7 @@ export function ColorSystemSection() {
       </div>
 
       {/* Capability Accents */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Capability Accents</h3>
+      <Eyebrow className="mb-4">Capability Accents</Eyebrow>
       <p className="text-[13px] text-text-secondary mb-4">Used exclusively for icon containers, badges, and capability pillars. Never as background fills.</p>
       <div className="grid grid-cols-4 gap-3 mb-10">
         <ColorSwatch name="Signal Blue" hex="#0057FF" usage="Signal Intelligence pillar" />
@@ -60,7 +60,7 @@ export function ColorSystemSection() {
       </div>
 
       {/* Application Rules */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="brand-card p-6">
         <h4 className="text-[15px] font-semibold text-foreground mb-3">Application Rules</h4>
         <ul className="space-y-2">
           {[

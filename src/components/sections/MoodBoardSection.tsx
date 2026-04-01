@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Copy, Check, Sparkles } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { Copy, Check, Sparkles, Crosshair } from "lucide-react";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 import moodDeepArch from "@/assets/mood-deep-arch.jpg";
 import moodSignalGrid from "@/assets/mood-signal-grid.jpg";
@@ -15,10 +15,11 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
-      className="flex items-center gap-1.5 text-[12px] text-primary hover:text-highlight transition-colors"
+      className="flex items-center gap-1.5 text-[12px] text-primary hover:text-highlight transition-colors duration-200"
+      style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
     >
       {copied ? <Check size={12} /> : <Copy size={12} />}
-      {copied ? "Copied" : "Copy Prompt"}
+      {copied ? "Copied!" : "Copy Prompt"}
     </button>
   );
 }
@@ -62,7 +63,7 @@ export function MoodBoardSection() {
           { label: "Terminal Data", h: "h-[260px]", img: moodTerminalData },
           { label: "Geometric Precision", h: "h-[200px]", img: moodGeometricPrecision },
         ].map((item) => (
-          <div key={item.label} className={`rounded-lg ${item.h} relative overflow-hidden flex items-end`}>
+          <div key={item.label} className={`rounded-xl ${item.h} relative overflow-hidden flex items-end`}>
             <img src={item.img} alt={item.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
             <span className="relative z-10 text-[10px] text-white/80 p-3 bg-gradient-to-t from-black/60 to-transparent w-full">{item.label}</span>
           </div>
@@ -70,10 +71,10 @@ export function MoodBoardSection() {
       </div>
 
       {/* Rules table */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Photography & Imagery Rules</h3>
+      <Eyebrow className="mb-4">Photography & Imagery Rules</Eyebrow>
       <div className="grid grid-cols-2 gap-4 mb-10">
-        <div className="bg-surface border border-border rounded-lg p-5">
-          <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-brand-emerald mb-3">Do Include</div>
+        <div className="brand-card p-5">
+          <Eyebrow className="text-brand-emerald mb-3">Do Include</Eyebrow>
           <ul className="space-y-2 text-[13px] text-text-secondary">
             <li>• Strict 3D geometric objects (cubes, spheres, sharp edges)</li>
             <li>• Abstract, minimalist architecture or macro material details</li>
@@ -81,8 +82,8 @@ export function MoodBoardSection() {
             <li>• Electric blue as accent or focal light source</li>
           </ul>
         </div>
-        <div className="bg-surface border border-border rounded-lg p-5">
-          <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-destructive mb-3">Do Not Include</div>
+        <div className="brand-card p-5">
+          <Eyebrow className="text-destructive mb-3">Do Not Include</Eyebrow>
           <ul className="space-y-2 text-[13px] text-text-secondary">
             <li>• Red or warm colors (orange, bright yellow)</li>
             <li>• People, faces, or hands in any capacity</li>
@@ -94,9 +95,9 @@ export function MoodBoardSection() {
 
       {/* Gemini prompts */}
       <div className="mb-10">
-        <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-2 flex items-center gap-2">
+        <Eyebrow className="mb-2 flex items-center gap-2">
           <Sparkles size={14} className="text-primary" /> Gemini Prompt Frameworks
-        </h3>
+        </Eyebrow>
         <p className="text-[13px] text-text-secondary mb-4">
           Because Enfactum's visual identity relies on strict abstract geometry and pure dark tones, generative AI models will naturally add unwanted 'friendly' elements. Use these engineered prompt formulas to force the model into our exact structural aesthetic.
         </p>
@@ -106,16 +107,17 @@ export function MoodBoardSection() {
             <button
               key={p.tab}
               onClick={() => setActiveTab(i)}
-              className={`px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 ${
                 activeTab === i ? "bg-primary text-primary-foreground" : "bg-elevated text-text-secondary hover:text-foreground"
               }`}
+              style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
             >
               {p.tab}
             </button>
           ))}
         </div>
 
-        <div className="bg-surface border border-border rounded-lg p-5">
+        <div className="brand-card p-5">
           <div className="flex items-center justify-between mb-3">
             <span className="text-[11px] font-mono-data text-muted">{prompts[activeTab].formula}</span>
             <CopyButton text={prompts[activeTab].text} />
@@ -127,8 +129,8 @@ export function MoodBoardSection() {
       </div>
 
       {/* Negative prompt */}
-      <div className="bg-brand-neutral-800 rounded-lg p-5">
-        <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-brand-neutral-400 mb-2">Negative Prompt Cheat Sheet</div>
+      <div className="bg-brand-neutral-800 rounded-xl p-5">
+        <Eyebrow className="text-brand-neutral-400 mb-2">Negative Prompt Cheat Sheet</Eyebrow>
         <pre className="font-mono-data text-[12px] text-brand-neutral-200 leading-relaxed whitespace-pre-wrap">
           Exclude: people, human subjects, faces, hands, red, orange, warm colors, soft gradients, watercolor effects, glowing neon nodes, floating particles, binary code, cybernetic themes, friendly corporate art.
         </pre>

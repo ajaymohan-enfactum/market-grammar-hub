@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function InteractionStatesSection() {
   return (
@@ -9,8 +9,8 @@ export function InteractionStatesSection() {
       />
 
       {/* State definitions */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">State Definitions</h3>
-      <div className="bg-surface border border-border rounded-lg overflow-hidden mb-10">
+      <Eyebrow className="mb-4">State Definitions</Eyebrow>
+      <div className="brand-card overflow-hidden mb-10">
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-border">
@@ -38,14 +38,20 @@ export function InteractionStatesSection() {
       </div>
 
       {/* Interactive demo */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Interactive Demo</h3>
-      <div className="bg-surface border border-border rounded-lg p-6 mb-10">
+      <Eyebrow className="mb-4">Interactive Demo</Eyebrow>
+      <div className="brand-card p-6 mb-10">
         <p className="text-[12px] text-muted mb-4">Hover and interact with these elements to see states in action</p>
         <div className="flex items-center gap-4">
-          <button className="px-5 py-2.5 bg-brand-blue text-white text-[13px] font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:bg-brand-blue-600 focus:ring-2 focus:ring-primary focus:ring-offset-2">
+          <button
+            className="px-5 py-2.5 bg-brand-blue text-white text-[13px] font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:bg-brand-blue-600 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+          >
             Primary Button
           </button>
-          <div className="bg-elevated rounded-lg p-4 transition-all duration-200 hover:-translate-y-1 hover:shadow-md cursor-pointer">
+          <div
+            className="bg-elevated rounded-xl p-4 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+          >
             <div className="text-[13px] font-semibold text-foreground">Hover Card</div>
             <div className="text-[11px] text-muted mt-1">Interactive element</div>
           </div>
@@ -56,9 +62,9 @@ export function InteractionStatesSection() {
       </div>
 
       {/* Loading states */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Loading States</h3>
+      <Eyebrow className="mb-4">Loading States</Eyebrow>
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-surface border border-border rounded-lg p-5">
+        <div className="brand-card p-5">
           <div className="text-[13px] font-semibold text-foreground mb-2">Skeleton</div>
           <div className="space-y-2">
             <div className="h-4 bg-elevated rounded animate-pulse w-3/4" />
@@ -67,7 +73,7 @@ export function InteractionStatesSection() {
           </div>
           <p className="text-[11px] text-muted mt-3">Use for content-heavy areas</p>
         </div>
-        <div className="bg-surface border border-border rounded-lg p-5">
+        <div className="brand-card p-5">
           <div className="text-[13px] font-semibold text-foreground mb-2">Spinner</div>
           <div className="flex items-center gap-2 mb-3">
             <div className="w-5 h-5 border-2 border-elevated border-t-primary rounded-full animate-spin" />
@@ -75,7 +81,7 @@ export function InteractionStatesSection() {
           </div>
           <p className="text-[11px] text-muted">Use for discrete actions</p>
         </div>
-        <div className="bg-surface border border-border rounded-lg p-5">
+        <div className="brand-card p-5">
           <div className="text-[13px] font-semibold text-foreground mb-2">Progress</div>
           <div className="h-1.5 bg-elevated rounded-full mb-3 overflow-hidden">
             <div className="h-full bg-primary rounded-full w-2/3 transition-all duration-500" />

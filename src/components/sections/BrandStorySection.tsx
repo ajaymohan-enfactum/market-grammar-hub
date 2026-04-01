@@ -1,5 +1,5 @@
 import { Grid3x3, Target, MapPin } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function BrandStorySection() {
   return (
@@ -11,8 +11,8 @@ export function BrandStorySection() {
 
       {/* THE ORIGIN */}
       <div className="mb-10">
-        <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">The Origin</h3>
-        <div className="border-l-2 border-primary bg-surface rounded-r-lg p-6">
+        <Eyebrow className="mb-4">The Origin</Eyebrow>
+        <div className="border-l-2 border-primary bg-surface rounded-r-xl p-6">
           <p className="text-[15px] leading-relaxed text-text-secondary">
             Most GTM tools were built for US enterprise markets — linear funnels, single-language outreach, predictable buyer cycles. Southeast Asia has none of that. 14 markets. 6 dominant languages. Compressed deal cycles. Buyers who do 90% of their research before talking to sales. Enfactum was built for this reality.
           </p>
@@ -21,7 +21,7 @@ export function BrandStorySection() {
 
       {/* THREE TRUTHS */}
       <div className="mb-10">
-        <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Three Truths</h3>
+        <Eyebrow className="mb-4">Three Truths</Eyebrow>
         <div className="grid grid-cols-3 gap-4">
           {[
             {
@@ -46,7 +46,7 @@ export function BrandStorySection() {
               body: "SEA's multi-script modernity, urban density, and tropical data-noir are our aesthetic source code. No Western design reference applies.",
             },
           ].map((card) => (
-            <div key={card.title} className="bg-surface border border-border rounded-lg p-5">
+            <div key={card.title} className="brand-card p-5">
               <div
                 className="w-11 h-11 rounded-[10px] flex items-center justify-center mb-4"
                 style={{ backgroundColor: card.bg }}
@@ -61,7 +61,7 @@ export function BrandStorySection() {
       </div>
 
       {/* POSITIONING */}
-      <div className="bg-brand-midnight rounded-lg p-10 text-center">
+      <div className="bg-brand-midnight rounded-xl p-10 text-center">
         <p className="text-2xl font-bold text-white leading-relaxed">
           "The Bloomberg Terminal of SEA GTM.{" "}
           <span className="text-brand-electric">Dense. Precise. Locally fluent.</span>"

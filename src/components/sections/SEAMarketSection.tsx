@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function SEAMarketSection() {
   return (
@@ -9,7 +9,7 @@ export function SEAMarketSection() {
       />
 
       {/* Market grid */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Priority Markets</h3>
+      <Eyebrow className="mb-4">Priority Markets</Eyebrow>
       <div className="grid grid-cols-2 gap-4 mb-10">
         {[
           { market: "Singapore", lang: "English, Mandarin, Malay, Tamil", note: "Primary HQ market. English-first with Mandarin for enterprise." },
@@ -19,7 +19,7 @@ export function SEAMarketSection() {
           { market: "Philippines", lang: "Filipino, English", note: "Bilingual market. English for enterprise, Filipino for SMB." },
           { market: "Malaysia", lang: "Malay, English, Mandarin", note: "Trilingual complexity. Bahasa Melayu distinct from Indonesian." },
         ].map((m) => (
-          <div key={m.market} className="bg-surface border border-border rounded-lg p-5">
+          <div key={m.market} className="brand-card p-5">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[15px] font-semibold text-foreground">{m.market}</span>
               <span className="font-mono-data text-[11px] text-muted">{m.lang}</span>
@@ -30,7 +30,7 @@ export function SEAMarketSection() {
       </div>
 
       {/* Adaptation rules */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="brand-card p-6">
         <h4 className="text-[15px] font-semibold text-foreground mb-3">Localisation Rules</h4>
         <ul className="space-y-2">
           {[

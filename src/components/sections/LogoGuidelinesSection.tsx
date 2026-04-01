@@ -1,5 +1,5 @@
 import { Download, Check, X } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 import { EnfactumLogo, SymbolMark } from "../EnfactumLogo";
 
 export function LogoGuidelinesSection() {
@@ -9,14 +9,14 @@ export function LogoGuidelinesSection() {
         title="Logo Guidelines"
         subtitle="The wordmark is the cornerstone of Enfactum's visual identity. Use it consistently to build recognition."
         action={
-          <button className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-[13px] font-medium text-muted cursor-not-allowed opacity-60">
+          <button className="flex items-center gap-2 px-4 py-2 border border-border-subtle rounded-xl text-[13px] font-medium text-muted cursor-not-allowed opacity-60 transition-all duration-200" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
             <Download size={14} /> Download Logo
           </button>
         }
       />
 
       {/* Primary display */}
-      <div className="mb-8 bg-brand-midnight rounded-lg flex items-center justify-center min-h-[200px]">
+      <div className="mb-8 bg-brand-midnight rounded-xl flex items-center justify-center min-h-[200px]">
         <span className="font-bold text-[64px] tracking-tight">
           <span className="text-white">en</span>
           <span className="text-brand-blue">fact</span>
@@ -27,15 +27,15 @@ export function LogoGuidelinesSection() {
 
       {/* Three variants */}
       <div className="grid grid-cols-3 gap-4 mb-10">
-        <div className="bg-brand-midnight rounded-lg flex items-center justify-center h-[140px]">
+        <div className="bg-brand-midnight rounded-xl flex items-center justify-center h-[140px]">
           <span className="font-bold text-[32px] tracking-tight">
             <span className="text-white">en</span><span className="text-brand-blue">fact</span><span className="text-white">um</span>
           </span>
         </div>
-        <div className="bg-elevated border border-border rounded-lg flex items-center justify-center h-[140px]">
+        <div className="bg-elevated border border-border-subtle rounded-xl flex items-center justify-center h-[140px]">
           <EnfactumLogo size={32} />
         </div>
-        <div className="bg-brand-midnight rounded-lg flex items-center justify-center h-[140px]">
+        <div className="bg-brand-midnight rounded-xl flex items-center justify-center h-[140px]">
           <SymbolMark size={40} />
         </div>
       </div>
@@ -47,8 +47,8 @@ export function LogoGuidelinesSection() {
 
       {/* Clear space */}
       <div className="mb-10">
-        <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Clear Space</h3>
-        <div className="bg-surface border border-border rounded-lg p-8 flex items-center justify-center">
+        <Eyebrow className="mb-4">Clear Space</Eyebrow>
+        <div className="brand-card p-8 flex items-center justify-center">
           <div className="border-2 border-dashed border-muted p-8 relative">
             <EnfactumLogo size={32} />
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-mono-data text-muted">x</span>
@@ -63,7 +63,7 @@ export function LogoGuidelinesSection() {
       {/* Usage rules */}
       <div className="grid grid-cols-2 gap-6">
         <div>
-          <h4 className="text-xs font-semibold tracking-[0.12em] uppercase text-brand-emerald mb-3 flex items-center gap-2">
+          <h4 className="text-[10px] font-semibold tracking-[0.12em] uppercase text-brand-emerald mb-3 flex items-center gap-2">
             <Check size={14} /> Do
           </h4>
           <ul className="space-y-2">
@@ -80,7 +80,7 @@ export function LogoGuidelinesSection() {
           </ul>
         </div>
         <div>
-          <h4 className="text-xs font-semibold tracking-[0.12em] uppercase text-destructive mb-3 flex items-center gap-2">
+          <h4 className="text-[10px] font-semibold tracking-[0.12em] uppercase text-destructive mb-3 flex items-center gap-2">
             <X size={14} /> Don't
           </h4>
           <ul className="space-y-2">
