@@ -21,6 +21,7 @@ import { PromptsComplianceSection } from "@/components/sections/PromptsComplianc
 import { SonicIdentitySection } from "@/components/sections/SonicIdentitySection";
 import { AIComplianceSection } from "@/components/sections/AIComplianceSection";
 import { EthicalAISection } from "@/components/sections/EthicalAISection";
+import { ChangelogOwnershipSection } from "@/components/sections/ChangelogOwnershipSection";
 import { UIComponentsSection } from "@/components/sections/UIComponentsSection";
 import { DataVizSection } from "@/components/sections/DataVizSection";
 import { InteractionStatesSection } from "@/components/sections/InteractionStatesSection";
