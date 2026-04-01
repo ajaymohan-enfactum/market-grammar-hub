@@ -63,7 +63,8 @@ function BrandBookContent() {
 
   return (
     <div className="min-h-screen bg-background">
-      <BrandSidebar activeSection={activeSection} onNavigate={handleNavigate} />
+      <BrandSidebar activeSection={activeSection} onNavigate={handleNavigate} onOpenSearch={() => setSearchOpen(true)} />
+      <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} onNavigate={handleNavigate} />
       <main className="ml-60">
         <div className="max-w-[900px] px-[72px] pt-16 pb-24">
           <BrandStorySection />
