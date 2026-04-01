@@ -5,7 +5,7 @@ export function BrandStorySection() {
   return (
     <SectionWrapper id="brand-story">
       <SectionHeader
-        title="Brand Story"
+        title={<>Brand <span className="text-primary">Story</span></>}
         subtitle="Enfactum exists because Southeast Asia's markets don't move like Western playbooks say they should. This section defines who we are, what we believe, and how to communicate our positioning."
       />
 

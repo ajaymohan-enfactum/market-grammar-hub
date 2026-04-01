@@ -5,7 +5,7 @@ export function SEAMarketSection() {
   return (
     <SectionWrapper id="sea-market">
       <SectionHeader
-        title="SEA Market Adaptation"
+        title={<>SEA Market <span className="text-primary">Adaptation</span></>}
         subtitle="Southeast Asia isn't one market — it's 14. This section provides specific linguistic, cultural, and technical adaptation rules for each priority market, with implementation examples."
       />
 

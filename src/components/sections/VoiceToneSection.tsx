@@ -5,7 +5,7 @@ export function VoiceToneSection() {
   return (
     <SectionWrapper id="voice-tone">
       <SectionHeader
-        title="Voice & Tone"
+        title={<><span className="text-primary">Voice</span> &amp; Tone</>}
         subtitle="Authoritative but never arrogant. Precise but never clinical. Locally fluent but globally legible. Data-dense but never inaccessible. This section defines how Enfactum speaks in every context."
       />
 

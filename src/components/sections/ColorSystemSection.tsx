@@ -26,7 +26,7 @@ export function ColorSystemSection() {
   return (
     <SectionWrapper id="color-system">
       <SectionHeader
-        title="Color System"
+        title={<>Color <span className="text-primary">System</span></>}
         subtitle="Our data-noir aesthetic requires absolute colour precision. This section covers every approved color, how to apply them, and what to avoid. Dark mode is ALWAYS the hero presentation."
       />
 

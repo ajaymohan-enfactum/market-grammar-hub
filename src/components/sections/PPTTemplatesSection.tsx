@@ -5,7 +5,7 @@ export function PPTTemplatesSection() {
   return (
     <SectionWrapper id="ppt-templates">
       <SectionHeader
-        title="PPT Templates"
+        title={<>PPT <span className="text-primary">Templates</span></>}
         subtitle="Presentation decks follow the same data-noir aesthetic. This section provides slide-by-slide guidance, specs, and rules to ensure every Enfactum presentation communicates authority."
       />
 

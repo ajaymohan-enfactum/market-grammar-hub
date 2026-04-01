@@ -57,7 +57,7 @@ export function LinkedInSection() {
   return (
     <SectionWrapper id="linkedin">
       <SectionHeader
-        title="LinkedIn Playbook"
+        title={<>LinkedIn <span className="text-primary">Playbook</span></>}
         subtitle="LinkedIn is our primary channel for thought leadership and pipeline generation. This section provides post formulas, visual guidelines, content calendar rules, and complete templates ready to adapt."
       />
 

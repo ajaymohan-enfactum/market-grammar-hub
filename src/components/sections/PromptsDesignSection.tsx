@@ -5,7 +5,7 @@ export function PromptsDesignSection() {
   return (
     <SectionWrapper id="prompts-design">
       <SectionHeader
-        title="Design Generation Prompts"
+        title={<>Design <span className="text-primary">Generation</span> Prompts</>}
         subtitle="Prompts for generating on-brand UI components, layouts, and design system extensions using AI code generation tools."
       />
 

@@ -6,7 +6,7 @@ export function LogoGuidelinesSection() {
   return (
     <SectionWrapper id="logo-guidelines">
       <SectionHeader
-        title="Logo Guidelines"
+        title={<>Logo <span className="text-primary">Guidelines</span></>}
         subtitle="The wordmark is the cornerstone of Enfactum's visual identity. This section covers every variant, approved usage, sizing rules, and placement guidance."
         action={
           <button className="flex items-center gap-2 px-4 py-2 border border-border-subtle rounded-xl text-[13px] font-medium text-muted cursor-not-allowed opacity-60 transition-all duration-200" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>

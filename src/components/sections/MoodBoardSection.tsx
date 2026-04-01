@@ -66,7 +66,7 @@ export function MoodBoardSection() {
   return (
     <SectionWrapper id="mood-board">
       <SectionHeader
-        title="Visual Mood Board"
+        title={<>Visual Mood <span className="text-primary">Board</span></>}
         subtitle="The curated visual direction. Strict 3D geometric forms, abstract architectural details, solid colors over gradients, zero human subjects."
       />
 

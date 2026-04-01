@@ -5,7 +5,7 @@ export function PromptsComplianceSection() {
   return (
     <SectionWrapper id="prompts-compliance">
       <SectionHeader
-        title="Brand Compliance Prompts"
+        title={<>Brand <span className="text-primary">Compliance</span> Prompts</>}
         subtitle="QA prompts that catch off-brand work before it ships. Run these checks on any copy, design spec, or presentation before publishing."
       />
 

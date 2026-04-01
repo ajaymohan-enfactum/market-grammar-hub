@@ -4,7 +4,7 @@ export function InteractionStatesSection() {
   return (
     <SectionWrapper id="interaction">
       <SectionHeader
-        title="Interaction States"
+        title={<>Interaction <span className="text-primary">States</span></>}
         subtitle="Every interactive element has 5 defined states. This section provides exact visual specs, CSS implementation patterns, and live demos for each state."
       />
 

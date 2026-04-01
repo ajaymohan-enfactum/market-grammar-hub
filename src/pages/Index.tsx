@@ -58,7 +58,7 @@ function BrandBookContent() {
           setActiveSection(visible[0].target.id);
         }
       },
-      { rootMargin: "-64px 0px -60% 0px", threshold: 0 }
+      { rootMargin: "-10% 0px -60% 0px", threshold: 0.1 }
     );
 
     allIds.forEach((id) => {

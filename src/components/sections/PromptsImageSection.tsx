@@ -10,7 +10,7 @@ export function PromptsImageSection() {
   return (
     <SectionWrapper id="prompts-image">
       <SectionHeader
-        title="Image Generation Prompts"
+        title={<>Image <span className="text-primary">Generation</span> Prompts</>}
         subtitle="Production-ready prompts for every image context. Pick the tool, copy the prompt, generate on-brand visuals in one shot."
       />
 

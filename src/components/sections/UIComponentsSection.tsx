@@ -4,7 +4,7 @@ export function UIComponentsSection() {
   return (
     <SectionWrapper id="ui-components">
       <SectionHeader
-        title="UI Components"
+        title={<>UI <span className="text-primary">Components</span></>}
         subtitle="Dense, information-rich components built for data-heavy B2B interfaces. This section provides specs, usage guidance, and implementation examples for every core component."
       />
 

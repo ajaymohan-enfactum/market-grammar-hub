@@ -5,7 +5,7 @@ export function PromptsCopySection() {
   return (
     <SectionWrapper id="prompts-copy">
       <SectionHeader
-        title="Copy Templates"
+        title={<>Copy <span className="text-primary">Templates</span></>}
         subtitle="Production-ready prompts for every writing context. Each prompt encodes Enfactum's voice rules so the output is on-brand from the first generation."
       />
 
