@@ -9,6 +9,7 @@ import moodUrbanDensity from "@/assets/mood-urban-density.jpg";
 import moodMarketInfra from "@/assets/mood-market-infra.jpg";
 import moodTerminalData from "@/assets/mood-terminal-data.jpg";
 import moodGeometricPrecision from "@/assets/mood-geometric-precision.jpg";
+import moodDataDensity from "@/assets/mood-data-density.jpg";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
