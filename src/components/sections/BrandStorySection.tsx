@@ -1,5 +1,5 @@
 import { Grid3x3, Target, MapPin } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "./SectionParts";
+import { SectionWrapper, SectionHeader } from "../SectionParts";
 
 export function BrandStorySection() {
   return (
