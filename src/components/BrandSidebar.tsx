@@ -15,7 +15,8 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
   const { theme, toggle } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleNav = (id: string) => {
+  const handleNav = (id: string, label: string) => {
+    posthog.capture("nav_section_clicked", { section_name: label });
     onNavigate(id);
     setMobileOpen(false);
   };
