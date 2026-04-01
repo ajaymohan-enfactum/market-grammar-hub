@@ -12,6 +12,7 @@ export function PromptsComplianceSection() {
       <Eyebrow className="mb-4">Copy Compliance</Eyebrow>
       <div className="space-y-4 mb-10">
         <PromptCard
+          id="prompt-voice-audit"
           tool="Claude"
           title="Full Brand Voice Audit"
           whenToUse="Before publishing any external-facing copy — website, emails, decks, social."
@@ -47,6 +48,7 @@ FIX: [suggested replacement]
 End with a compliance score: X/10 where 10 = fully compliant.`}
         />
         <PromptCard
+          id="prompt-color-audit"
           tool="Claude"
           title="Audit Copy for Color Reference Violations"
           whenToUse="Before publishing any written content that references Enfactum visuals."
@@ -66,6 +68,7 @@ Return: list of violations found + suggested replacement phrasing for each.`}
       <Eyebrow className="mb-4">Design Compliance</Eyebrow>
       <div className="space-y-4 mb-10">
         <PromptCard
+          id="prompt-design-compliance"
           tool="Claude"
           title="Design Spec Compliance Check"
           whenToUse="Before handing off any design to engineering."
@@ -107,6 +110,7 @@ For each issue, output the violation and the correct specification.`}
       <Eyebrow className="mb-4">Presentation Compliance</Eyebrow>
       <div className="space-y-4">
         <PromptCard
+          id="prompt-deck-preflight"
           tool="Claude"
           title="Deck Pre-Flight Check"
           whenToUse="Before any external presentation. Run on slide-by-slide content."

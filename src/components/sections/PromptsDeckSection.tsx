@@ -12,6 +12,7 @@ export function PromptsDeckSection() {
       <Eyebrow className="mb-4">Slide Content</Eyebrow>
       <div className="space-y-4 mb-10">
         <PromptCard
+          id="prompt-pitch-deck"
           tool="Gamma"
           title="Generate a Full Pitch Deck"
           whenToUse="Investor meetings, partnership pitches, enterprise sales."
@@ -38,6 +39,7 @@ Design rules:
 - Animations: fade-in only, 300ms`}
         />
         <PromptCard
+          id="prompt-speaker-notes"
           tool="Claude"
           title="Write Slide-by-Slide Speaker Notes"
           whenToUse="Preparing for a presentation with a pre-built deck."
@@ -62,6 +64,7 @@ Rules:
       <Eyebrow className="mb-4">Presentation Visuals</Eyebrow>
       <div className="space-y-4">
         <PromptCard
+          id="prompt-deck-title-bg"
           tool="Midjourney"
           title="Deck Title Slide Background"
           whenToUse="Opening slide of any Enfactum presentation."
@@ -70,6 +73,7 @@ Rules:
 Negative: people, warm colors, gradients, organic shapes, bokeh, lens flare, watercolor, neon`}
         />
         <PromptCard
+          id="prompt-deck-data-bg"
           tool="Midjourney"
           title="Data Slide Background"
           whenToUse="Behind charts and metrics — subtle, non-competing."

@@ -70,8 +70,8 @@ function BrandBookContent() {
     <div className="min-h-screen bg-background transition-colors duration-300" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
       <BrandSidebar activeSection={activeSection} onNavigate={handleNavigate} onOpenSearch={() => setSearchOpen(true)} />
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} onNavigate={handleNavigate} />
-      <main className="ml-60">
-        <div className="max-w-[900px] px-[72px] pt-16 pb-24">
+      <main className="md:ml-60">
+        <div className="max-w-[900px] px-4 sm:px-8 md:px-[72px] pt-16 pb-24">
           <QuickCreateSection onNavigate={handleNavigate} />
           <BrandStorySection />
           <LogoGuidelinesSection />
