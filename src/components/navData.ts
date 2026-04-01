@@ -1,7 +1,8 @@
 import {
   BookOpen, Palette, Type, Eye, Image, Play, MessageSquare,
   Linkedin, Layout, BarChart2, MousePointer, Globe, FileText, Sparkles,
-  Zap, PenLine, Paintbrush, Presentation, ShieldCheck
+  Zap, PenLine, Paintbrush, Presentation, ShieldCheck,
+  Volume2, Shield, Scale
 } from "lucide-react";
 
 export interface NavSection {
@@ -48,6 +49,14 @@ export const navSections: NavSection[] = [
       { id: "prompts-design", label: "Design Generation", icon: Layout, accent: true },
       { id: "prompts-deck", label: "Deck Generation", icon: Presentation, accent: true },
       { id: "prompts-compliance", label: "Brand Compliance", icon: ShieldCheck, accent: true },
+    ],
+  },
+  {
+    group: "Governance",
+    items: [
+      { id: "sonic-identity", label: "Sonic Identity", icon: Volume2, accent: true },
+      { id: "ai-compliance", label: "AI Compliance System", icon: Shield, accent: true },
+      { id: "ethical-ai", label: "Ethical AI Use", icon: Scale, accent: true },
     ],
   },
   {
