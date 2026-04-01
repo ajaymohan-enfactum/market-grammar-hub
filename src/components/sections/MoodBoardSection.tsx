@@ -7,6 +7,12 @@ import moodGlassSteel from "@/assets/mood-glass-steel.jpg";
 import moodUrbanDensity from "@/assets/mood-urban-density.jpg";
 import moodMarketInfra from "@/assets/mood-market-infra.jpg";
 import moodGeometricPrecision from "@/assets/mood-geometric-precision.jpg";
+import lightSignalFlow from "@/assets/light-signal-flow.jpg";
+import lightMarketPulse from "@/assets/light-market-pulse.jpg";
+import lightTerritoryMap from "@/assets/light-territory-map.jpg";
+import lightDataTerrain from "@/assets/light-data-terrain.jpg";
+import lightIntelligenceLayer from "@/assets/light-intelligence-layer.jpg";
+import lightGrowthVector from "@/assets/light-growth-vector.jpg";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
