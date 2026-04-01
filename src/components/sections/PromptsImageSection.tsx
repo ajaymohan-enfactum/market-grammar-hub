@@ -129,7 +129,7 @@ Negative: people, faces, dark backgrounds, flat fills, corporate stock, binary c
 
       {activeTab === "Gemini" && (
         <div className="space-y-4">
-          <Eyebrow className="mb-2">Foundation / Pathway / Monument Frameworks</Eyebrow>
+          <Eyebrow className="mb-2">Dark Presentations — Foundation / Pathway / Monument</Eyebrow>
           <p className="text-[13px] text-text-secondary mb-4">These are the three core Gemini prompt frameworks from the Mood Board. Each produces a distinct visual category.</p>
           <PromptCard
             id="prompt-gemini-foundation"
@@ -152,17 +152,51 @@ Negative: people, faces, dark backgrounds, flat fills, corporate stock, binary c
             whenToUse="Keynote backgrounds, executive presentations, brand statements."
             prompt={`A low-angle view of massive, minimalist brutalist architecture without any windows or human context. Intersecting solid concrete and dark steel planes. Deep, high-contrast shadows. The atmosphere is cold and corporate. A subtle, sharp electric blue reflection strikes a pane of dark glass. 8k resolution, highly realistic, structural focus. Exclude red tones, orange tones, natural landscapes, people, sky gradients, and soft watercolor effects.`}
           />
+
+          <Eyebrow className="mt-8 mb-2">Light Presentations — Radiance / Spectrum / Prism</Eyebrow>
+          <p className="text-[13px] text-text-secondary mb-4">Light counterparts to the dark frameworks. Vivid color fields on white canvas, abstract and non-representational.</p>
+          <PromptCard
+            id="prompt-gemini-light-foundation"
+            tool="Gemini"
+            title="The Radiance — Data & Color"
+            whenToUse="Light-themed hero images, landing pages, product visuals."
+            prompt={`A photorealistic macro shot of 3D geometric cubes arranged in a rigid, asymmetrical grid. The background is clean white fading into soft light grey. The cubes are made of translucent colored glass in electric blue (#0057FF), violet (#7C3AED), and emerald (#10B981). Sharp directional lighting creates vivid colored shadows and refractions. Modern abstract art style, highly detailed. Exclude all people, dark backgrounds, midnight blue, black, glowing neon nodes, and organic shapes.`}
+          />
+          <PromptCard
+            id="prompt-gemini-light-pathway"
+            tool="Gemini"
+            title="The Spectrum — Strategy & Flow"
+            whenToUse="Light-themed process diagrams, strategy visuals, flow illustrations."
+            prompt={`Abstract 3D structural lines and geometric pathways intersecting cleanly on a bright white canvas. The primary colors are vivid electric blue (#0057FF), violet (#7C3AED), and emerald (#10B981) with smooth gradient transitions. Bold, energetic design. Color bands flow along the edges of the structures, creating depth and movement. Precise, mathematical, modern corporate art. Exclude dark backgrounds, midnight blue, black, binary code, cybernetic themes, people, and muted colors.`}
+          />
+          <PromptCard
+            id="prompt-gemini-light-monument"
+            tool="Gemini"
+            title="The Prism — Scale & Brilliance"
+            whenToUse="Light-themed keynote backgrounds, executive presentations, brand statements."
+            prompt={`A low-angle view of massive, minimalist architecture made of translucent prismatic glass. Intersecting planes refract light into vivid spectrums of blue (#0057FF), violet (#7C3AED), and amber (#F59E0B). Clean white atmosphere with bold color reflections. No windows, no human context. 8k resolution, highly realistic, structural focus. Exclude dark backgrounds, midnight blue, black, warm red, orange, natural landscapes, people, and watercolor effects.`}
+          />
         </div>
       )}
 
       {activeTab === "DALL-E" && (
         <div className="space-y-4">
+          <Eyebrow className="mb-2">Dark Presentations</Eyebrow>
           <PromptCard
             id="prompt-blog-header"
             tool="DALL-E"
             title="Blog Post Header Image"
             whenToUse="Blog headers, newsletter banners, content marketing visuals."
             prompt={`Create an abstract architectural composition for a B2B technology blog header. Style: minimalist brutalism. Base color: deep midnight navy (#0A0F1E). Accent: single thin line of electric blue (#0057FF). Composition: overlapping geometric planes creating depth. Materials: concrete, dark steel, matte glass. Lighting: single cold directional light from upper left. No people, no text, no warm colors, no organic shapes. Photorealistic, 8k quality. Aspect ratio 16:9.`}
+          />
+
+          <Eyebrow className="mt-8 mb-2">Light Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-dalle-light-blog"
+            tool="DALL-E"
+            title="Blog Post Header — Chromatic Abstract"
+            whenToUse="Light-themed blog headers, newsletter banners, content marketing visuals."
+            prompt={`Create an abstract color field composition for a modern B2B technology blog header. Style: bold geometric abstraction. Base: clean white canvas. Primary colors: electric blue (#0057FF), violet (#7C3AED), emerald (#10B981). Composition: overlapping translucent geometric ribbons creating depth and movement. Materials: glass-like surfaces with color refractions. Lighting: bright, even, high-key. No people, no text, no dark backgrounds, no flat single-color fills, no corporate stock imagery. High energy, non-representational. 8k quality. Aspect ratio 16:9.`}
           />
         </div>
       )}
