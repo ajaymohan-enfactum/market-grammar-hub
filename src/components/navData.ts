@@ -57,6 +57,7 @@ export const navSections: NavSection[] = [
       { id: "sonic-identity", label: "Sonic Identity", icon: Volume2, accent: true },
       { id: "ai-compliance", label: "AI Compliance System", icon: Shield, accent: true },
       { id: "ethical-ai", label: "Ethical AI Use", icon: Scale, accent: true },
+      { id: "changelog-ownership", label: "Changelog & Ownership", icon: Shield, accent: true },
     ],
   },
   {

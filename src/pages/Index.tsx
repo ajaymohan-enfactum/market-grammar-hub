@@ -94,6 +94,7 @@ function BrandBookContent() {
           <SonicIdentitySection />
           <AIComplianceSection />
           <EthicalAISection />
+          <ChangelogOwnershipSection />
           <UIComponentsSection />
           <DataVizSection />
           <InteractionStatesSection />
