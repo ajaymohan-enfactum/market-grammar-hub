@@ -31,6 +31,7 @@ export function PromptsImageSection() {
 
       {activeTab === "Midjourney" && (
         <div className="space-y-4">
+          <Eyebrow className="mb-2">Dark Presentations</Eyebrow>
           <PromptCard
             id="prompt-linkedin-hero-bg"
             tool="Midjourney"
@@ -57,6 +58,35 @@ Negative: people, warm colors, orange, red, organic shapes, trees, sky, watercol
             prompt={`/imagine prompt: macro shot of precision geometric grid, dark graphite surface, mathematical grid lines in electric blue #2979FF at 20% opacity, single sharp light source, deep contrast, structural minimalism, data infrastructure aesthetic, no text, no people, no warm tones --ar 1:1 --style raw --v 6.1
 
 Negative: people, gradients, orange, warm, glowing, neon, bokeh, soft`}
+          />
+
+          <Eyebrow className="mt-8 mb-2">Light Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-mj-light-linkedin"
+            tool="Midjourney"
+            title="LinkedIn Post Background — Vibrant Abstract"
+            whenToUse="Light-themed LinkedIn carousel posts and article headers for high-energy messaging."
+            prompt={`/imagine prompt: abstract flowing color field composition, vivid gradients of electric blue #0057FF, violet #7C3AED, and emerald #10B981 blending across a clean white canvas, dynamic geometric ribbons and curved planes creating depth, non-representational, no text, no people, bold color contrast with luminous focal point, modern abstract art style, 8k --ar 16:9 --style raw --v 6.1
+
+Negative: people, faces, hands, corporate environments, stock imagery, flat single-color fills, dark backgrounds, binary code, server racks, warm orange, red`}
+          />
+          <PromptCard
+            id="prompt-mj-light-event"
+            tool="Midjourney"
+            title="Event Backdrop — Prismatic Energy"
+            whenToUse="Conference stages and physical brand environments for light-themed events."
+            prompt={`/imagine prompt: large-scale abstract prismatic composition, overlapping translucent geometric planes in electric blue #0057FF, violet #7C3AED, and amber #F59E0B, white background with subtle depth, bold intersecting color bands creating movement and energy, no people, no text, photorealistic glass-like refractions, high-energy corporate abstract, 8k --ar 16:9 --style raw --v 6.1
+
+Negative: people, faces, dark backgrounds, midnight blue, black, corporate stock, bokeh, soft watercolor, low contrast`}
+          />
+          <PromptCard
+            id="prompt-mj-light-social"
+            tool="Midjourney"
+            title="Social Media Square — Color Pulse"
+            whenToUse="Instagram posts and social graphics for light-themed brand moments."
+            prompt={`/imagine prompt: bold abstract color burst, concentric geometric forms radiating from center, vivid spectrum of blue #0057FF through violet #7C3AED to emerald #10B981, clean white negative space, sharp edges meeting smooth gradients, non-representational, high energy, modern graphic art, no text, no people --ar 1:1 --style raw --v 6.1
+
+Negative: people, faces, dark backgrounds, flat fills, corporate stock, binary code, warm red, orange`}
           />
         </div>
       )}
