@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Copy, Check, Sparkles } from "lucide-react";
+import posthog from "posthog-js";
 import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 import moodDeepArch from "@/assets/mood-deep-arch.jpg";
