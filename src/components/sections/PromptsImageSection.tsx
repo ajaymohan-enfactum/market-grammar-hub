@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 import { PromptCard } from "../PromptCard";
 
-const tabs = ["Midjourney", "Ideogram", "Gemini", "DALL-E"] as const;
+const tabs = ["Midjourney", "Ideogram", "Gemini", "DALL-E", "Claude"] as const;
 
 export function PromptsImageSection() {
   const [activeTab, setActiveTab] = useState<string>("Midjourney");
@@ -197,6 +197,92 @@ Negative: dark backgrounds, warm gradients, neon particles, bokeh, soft lighting
             title="Blog Post Header — Chromatic Abstract"
             whenToUse="Light-themed blog headers, newsletter banners, content marketing visuals."
             prompt={`Create an abstract color field composition for a modern B2B technology blog header. Style: bold geometric abstraction. Base: clean white canvas. Primary colors: electric blue (#0057FF), violet (#7C3AED), emerald (#10B981). Composition: overlapping translucent geometric ribbons creating depth and movement. Materials: glass-like surfaces with color refractions. Lighting: bright, even, high-key. No people, no text, no dark backgrounds, no flat single-color fills, no corporate stock imagery. High energy, non-representational. 8k quality. Aspect ratio 16:9.`}
+          />
+        </div>
+      )}
+
+      {activeTab === "Claude" && (
+        <div className="space-y-4">
+          <Eyebrow className="mb-2">Dark Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-claude-dark-linkedin"
+            tool="Claude"
+            title="LinkedIn Visual Brief — Dark"
+            whenToUse="Art direction brief for LinkedIn post background images in dark mode."
+            prompt={`<system_prompt>
+You are a visual art director for Enfactum, a B2B market intelligence firm. Brand: Midnight #0A0F1E backgrounds, Brand Blue #0057FF accents, IBM Plex geometry, non-representational abstract forms only.
+</system_prompt>
+
+<user_prompt>
+Generate a detailed art direction brief for a LinkedIn post background image. Dark mode. Abstract geometric composition. Electric blue focal element. No people, no text, no logos.
+</user_prompt>`}
+          />
+          <PromptCard
+            id="prompt-claude-dark-deck"
+            tool="Claude"
+            title="Deck Cover Concept — Dark"
+            whenToUse="Visual concept brief for presentation deck covers in dark mode."
+            prompt={`<system_prompt>
+You are a visual art director for Enfactum, a B2B market intelligence firm. Brand: Midnight #0A0F1E backgrounds, Brand Blue #0057FF accents, IBM Plex geometry, non-representational abstract forms only.
+</system_prompt>
+
+<user_prompt>
+Write a visual concept brief for a presentation deck cover. Midnight background, prismatic light refraction, sharp angular forms, B2B editorial tone.
+</user_prompt>`}
+          />
+          <PromptCard
+            id="prompt-claude-dark-social"
+            tool="Claude"
+            title="Social Square — Dark"
+            whenToUse="Art direction for 1:1 social media squares in dark mode."
+            prompt={`<system_prompt>
+You are a visual art director for Enfactum, a B2B market intelligence firm. Brand: Midnight #0A0F1E backgrounds, Brand Blue #0057FF accents, IBM Plex geometry, non-representational abstract forms only.
+</system_prompt>
+
+<user_prompt>
+Art direct a 1:1 social media square. Dark field, single electric blue geometric anchor, mathematical precision, zero organic forms.
+</user_prompt>`}
+          />
+
+          <Eyebrow className="mt-8 mb-2">Light Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-claude-light-linkedin"
+            tool="Claude"
+            title="LinkedIn Visual Brief — Light"
+            whenToUse="Art direction brief for LinkedIn post background images in light mode."
+            prompt={`<system_prompt>
+You are a visual art director for Enfactum, a B2B market intelligence firm. Brand: Clean white canvas, Brand Blue #0057FF primary accents, full-spectrum prismatic palette, IBM Plex geometry, non-representational abstract forms only.
+</system_prompt>
+
+<user_prompt>
+Generate a detailed art direction brief for a LinkedIn post background image. Light mode, white canvas. Abstract geometric composition with vivid electric blue and spectral color accents. No people, no text, no logos.
+</user_prompt>`}
+          />
+          <PromptCard
+            id="prompt-claude-light-deck"
+            tool="Claude"
+            title="Deck Cover Concept — Light"
+            whenToUse="Visual concept brief for presentation deck covers in light mode."
+            prompt={`<system_prompt>
+You are a visual art director for Enfactum, a B2B market intelligence firm. Brand: Clean white canvas, Brand Blue #0057FF primary accents, full-spectrum prismatic palette, IBM Plex geometry, non-representational abstract forms only.
+</system_prompt>
+
+<user_prompt>
+Write a visual concept brief for a presentation deck cover. White background, prismatic color refractions, bold geometric planes, high-energy B2B editorial tone.
+</user_prompt>`}
+          />
+          <PromptCard
+            id="prompt-claude-light-social"
+            tool="Claude"
+            title="Social Square — Light"
+            whenToUse="Art direction for 1:1 social media squares in light mode."
+            prompt={`<system_prompt>
+You are a visual art director for Enfactum, a B2B market intelligence firm. Brand: Clean white canvas, Brand Blue #0057FF primary accents, full-spectrum prismatic palette, IBM Plex geometry, non-representational abstract forms only.
+</system_prompt>
+
+<user_prompt>
+Art direct a 1:1 social media square. White field, vivid electric blue geometric anchor with spectral color accents, mathematical precision, zero organic forms.
+</user_prompt>`}
           />
         </div>
       )}
