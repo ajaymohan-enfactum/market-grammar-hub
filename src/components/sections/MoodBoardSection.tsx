@@ -65,9 +65,9 @@ const prompts = [
 ];
 
 const lightCards = [
-  { label: "Signal Flow", img: lightSignalFlow },
-  { label: "Market Pulse", img: lightMarketPulse },
-  { label: "Territory Map", img: lightTerritoryMap },
+  { label: "Signal Flow", img: light1 },
+  { label: "Market Pulse", img: light2 },
+  { label: "Spectrum Shift", img: light3 },
   { label: "Data Terrain", img: lightDataTerrain },
   { label: "Intelligence Layer", img: lightIntelligenceLayer },
   { label: "Growth Vector", img: lightGrowthVector },
