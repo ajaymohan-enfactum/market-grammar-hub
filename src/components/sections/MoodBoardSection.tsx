@@ -71,8 +71,8 @@ export function MoodBoardSection() {
         subtitle="The curated visual direction. Strict 3D geometric forms, abstract architectural details, solid colors over gradients, zero human subjects."
       />
 
-      {/* Masonry grid */}
-      <div className="grid grid-cols-3 gap-3 mb-10">
+      {/* Static mood board grid — 3+3+2 layout, no carousel */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
         {[
           { label: "Deep Architecture", h: "h-[200px]", img: moodDeepArch },
           { label: "Signal Grid", h: "h-[280px]", img: moodSignalGrid },
@@ -81,6 +81,7 @@ export function MoodBoardSection() {
           { label: "Market Infrastructure", h: "h-[180px]", img: moodMarketInfra },
           { label: "Terminal Data", h: "h-[260px]", img: moodTerminalData },
           { label: "Geometric Precision", h: "h-[200px]", img: moodGeometricPrecision },
+          { label: "Data Density", h: "h-[200px]", img: moodDataDensity },
         ].map((item) => (
           <div key={item.label} className={`rounded-xl ${item.h} relative overflow-hidden flex items-end`}>
             <img src={item.img} alt={item.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
