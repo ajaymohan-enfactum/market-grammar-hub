@@ -18,7 +18,7 @@ export function MotionSection() {
         ].map((c) => (
           <div key={c.name} className="bg-surface border border-border rounded-lg p-5">
             <div className="text-[13px] font-semibold text-foreground mb-1">{c.name}</div>
-            <div className="font-mono-data text-[11px] text-muted mb-3">{c.curve}</div>
+            <CopyToken value={c.curve} className="text-[11px] text-muted mb-3" />
             <div className="relative h-3 bg-elevated rounded-full mb-3">
               <div className={`absolute top-0.5 w-3 h-2 rounded-full bg-primary ${c.anim}`} />
             </div>
