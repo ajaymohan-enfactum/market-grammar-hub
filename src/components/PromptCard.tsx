@@ -62,6 +62,8 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
   const [copied, setCopied] = useState(false);
   const [pulsing, setPulsing] = useState(false);
   const [rating, setRating] = useState<"up" | "down" | null>(null);
+  const [brandCheckOpen, setBrandCheckOpen] = useState(false);
+  const [checks, setChecks] = useState([false, false, false, false]);
   const cardRef = useRef<HTMLDivElement>(null);
   const tools = Array.isArray(tool) ? tool : [tool];
 
