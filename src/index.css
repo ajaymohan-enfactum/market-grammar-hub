@@ -32,8 +32,8 @@
     --sidebar-bg: 0 0% 100%;
     --highlight: 220 100% 40%;
 
-    /* Section alternating bg — in light both are the same page bg */
-    --section-alt: 228 33% 97%;
+    /* Section alternating bg */
+    --section-alt: 0 0% 100%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 228 54% 8%;
