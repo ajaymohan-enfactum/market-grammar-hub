@@ -201,6 +201,38 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
         <div className="mt-2 text-[11px] font-mono-data text-muted">
           {charCount} characters
         </div>
+
+        {/* Brand Check */}
+        <div className="mt-3 pt-2 border-t border-border/50">
+          <button
+            onClick={() => setBrandCheckOpen((v) => !v)}
+            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors duration-150 ${
+              allChecked ? "text-primary" : "text-muted hover:text-foreground"
+            }`}
+          >
+            <ChevronDown size={12} className={`transition-transform duration-200 ${brandCheckOpen ? "rotate-180" : ""}`} />
+            {allChecked ? "Brand Check ✓" : "Brand Check"}
+          </button>
+          {brandCheckOpen && (
+            <div className="mt-2 space-y-1.5 pl-[18px]">
+              {brandCheckLabels.map((label, i) => (
+                <label key={i} className="flex items-start gap-2 text-[11px] text-text-secondary cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={checks[i]}
+                    onChange={() => {
+                      const next = [...checks];
+                      next[i] = !next[i];
+                      setChecks(next);
+                    }}
+                    className="mt-[2px] rounded border-border accent-primary"
+                  />
+                  {label}
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
