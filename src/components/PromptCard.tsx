@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Copy, Check } from "lucide-react";
+import posthog from "posthog-js";
 
 export type ToolType = "Claude" | "Midjourney" | "v0" | "Gamma" | "ChatGPT" | "Gemini" | "Ideogram" | "Flux" | "DALL-E" | "Lovable" | "Canva";
 
