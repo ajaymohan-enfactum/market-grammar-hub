@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sun, Moon, Search, Menu, X } from "lucide-react";
+import { Sun, Moon, Search, Menu, X, Download } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { EnfactumLogo } from "./EnfactumLogo";
 import { navSections } from "./navData";
