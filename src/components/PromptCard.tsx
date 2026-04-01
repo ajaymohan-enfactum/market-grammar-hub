@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Copy, Check, ThumbsUp, ThumbsDown } from "lucide-react";
+import { Copy, Check, ThumbsUp, ThumbsDown, ChevronDown } from "lucide-react";
 import posthog from "posthog-js";
 
 export type ToolType = "Claude" | "Midjourney" | "v0" | "Gamma" | "ChatGPT" | "Gemini" | "Ideogram" | "Flux" | "DALL-E" | "Lovable" | "Canva";
@@ -62,6 +62,8 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
   const [copied, setCopied] = useState(false);
   const [pulsing, setPulsing] = useState(false);
   const [rating, setRating] = useState<"up" | "down" | null>(null);
+  const [brandCheckOpen, setBrandCheckOpen] = useState(false);
+  const [checks, setChecks] = useState([false, false, false, false]);
   const cardRef = useRef<HTMLDivElement>(null);
   const tools = Array.isArray(tool) ? tool : [tool];
 
@@ -132,6 +134,14 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
   };
 
   const charCount = prompt.length;
+  const allChecked = checks.every(Boolean);
+
+  const brandCheckLabels = [
+    "Colors match #0057FF / #0A0F1E palette",
+    "Font is IBM Plex Sans or IBM Plex Mono",
+    "No unauthorised stock imagery",
+    "Tone matches Voice & Tone guidelines",
+  ];
 
   return (
     <div
@@ -198,6 +208,38 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
         </div>
         <div className="mt-2 text-[11px] font-mono-data text-muted">
           {charCount} characters
+        </div>
+
+        {/* Brand Check */}
+        <div className="mt-3 pt-2 border-t border-border/50">
+          <button
+            onClick={() => setBrandCheckOpen((v) => !v)}
+            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors duration-150 ${
+              allChecked ? "text-primary" : "text-muted hover:text-foreground"
+            }`}
+          >
+            <ChevronDown size={12} className={`transition-transform duration-200 ${brandCheckOpen ? "rotate-180" : ""}`} />
+            {allChecked ? "Brand Check ✓" : "Brand Check"}
+          </button>
+          {brandCheckOpen && (
+            <div className="mt-2 space-y-1.5 pl-[18px]">
+              {brandCheckLabels.map((label, i) => (
+                <label key={i} className="flex items-start gap-2 text-[11px] text-text-secondary cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={checks[i]}
+                    onChange={() => {
+                      const next = [...checks];
+                      next[i] = !next[i];
+                      setChecks(next);
+                    }}
+                    className="mt-[2px] rounded border-border accent-primary"
+                  />
+                  {label}
+                </label>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
