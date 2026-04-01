@@ -5,6 +5,12 @@ import {
 } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "../SectionParts";
 
+import visualPrimary3d from "@/assets/visual-primary-3d.jpg";
+import visualMarketArch from "@/assets/visual-market-arch.jpg";
+import visualStructural from "@/assets/visual-structural.jpg";
+import visualGeometricIntersect from "@/assets/visual-geometric-intersect.jpg";
+import visualLinearSignal from "@/assets/visual-linear-signal.jpg";
+
 function IconGrid({ label, icons }: { label: string; icons: { icon: React.ElementType; name: string }[] }) {
   return (
     <div className="mb-6">
