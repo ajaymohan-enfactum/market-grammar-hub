@@ -93,6 +93,7 @@ Negative: people, faces, dark backgrounds, flat fills, corporate stock, binary c
 
       {activeTab === "Ideogram" && (
         <div className="space-y-4">
+          <Eyebrow className="mb-2">Dark Presentations</Eyebrow>
           <PromptCard
             id="prompt-data-report-bg"
             tool="Ideogram"
@@ -106,6 +107,22 @@ Negative: people, faces, dark backgrounds, flat fills, corporate stock, binary c
             title="Territory Map Visual"
             whenToUse="SEA market coverage visuals, territory breakdowns."
             prompt={`Abstract minimalist map visualization of Southeast Asia rendered as geometric blocks and precise grid lines on deep midnight blue (#0A0F1E) background. Countries represented as clean geometric shapes in varying shades of dark navy. Singapore highlighted with electric blue (#0057FF) accent glow. No labels, no people, no warm colors. Style: data infrastructure, architectural precision. Aspect ratio: 16:9`}
+          />
+
+          <Eyebrow className="mt-8 mb-2">Light Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-ideo-light-report"
+            tool="Ideogram"
+            title="Data Report Background — Luminous"
+            whenToUse="Light-themed infographic backgrounds, report covers, and document headers."
+            prompt={`A vibrant, abstract background for a modern B2B data report. Clean white base with flowing geometric color fields in electric blue (#0057FF), violet (#7C3AED), and emerald (#10B981). Smooth gradient transitions between bold color zones. Abstract, non-representational, suitable for text overlay. No people, no corporate stock imagery, no flat single-color fills. Style: modern data visualization art, high energy. Aspect ratio: 16:9`}
+          />
+          <PromptCard
+            id="prompt-ideo-light-territory"
+            tool="Ideogram"
+            title="Territory Map Visual — Chromatic"
+            whenToUse="Light-themed SEA market coverage visuals and territory breakdowns."
+            prompt={`Abstract colorful map visualization of Southeast Asia rendered as overlapping translucent geometric planes on a clean white background. Countries represented as bold color blocks in electric blue (#0057FF), violet (#7C3AED), and emerald (#10B981). Singapore highlighted with a vivid amber (#F59E0B) accent glow. No labels, no people, no dark backgrounds. Style: modern cartographic art, chromatic depth. Aspect ratio: 16:9`}
           />
         </div>
       )}
