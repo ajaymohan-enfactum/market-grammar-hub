@@ -44,7 +44,7 @@ export function VisualStyleSection() {
   return (
     <SectionWrapper id="visual-style">
       <SectionHeader
-        title="Visual Style"
+        title={<>Visual <span className="text-primary">Style</span></>}
         subtitle="Immersive, geometric, and structured. This section covers photography selection, iconography rules, graphic elements, and how to commission or generate on-brand imagery."
       />
 

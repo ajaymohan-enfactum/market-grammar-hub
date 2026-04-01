@@ -4,7 +4,7 @@ export function MotionSection() {
   return (
     <SectionWrapper id="motion">
       <SectionHeader
-        title="Motion & Animation"
+        title={<><span className="text-primary">Motion</span> &amp; Animation</>}
         subtitle="Precise deceleration only. No spring physics, no bounce. This section provides every easing curve, timing token, and implementation pattern your team needs."
       />
 

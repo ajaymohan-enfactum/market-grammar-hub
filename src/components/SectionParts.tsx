@@ -1,11 +1,11 @@
 import { type ReactNode, useState } from "react";
 import { Copy, Check } from "lucide-react";
 
-export function SectionWrapper({ id, children, alt = false }: { id: string; children: ReactNode; alt?: boolean }) {
+export function SectionWrapper({ id, children }: { id: string; children: ReactNode }) {
   return (
     <section
       id={id}
-      className={`scroll-mt-16 pb-16 border-b border-border last:border-b-0 ${alt ? "section-alt -mx-[72px] px-[72px] pt-16" : ""}`}
+      className="scroll-mt-16 pb-16 border-b border-border last:border-b-0"
     >
       {children}
     </section>

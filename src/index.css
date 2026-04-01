@@ -32,8 +32,8 @@
     --sidebar-bg: 0 0% 100%;
     --highlight: 220 100% 40%;
 
-    /* Section alternating bg — in light both are the same page bg */
-    --section-alt: 228 33% 97%;
+    /* Section alternating bg */
+    --section-alt: 0 0% 100%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 228 54% 8%;
@@ -77,7 +77,7 @@
     --highlight: 220 100% 56%;
 
     /* Alternating dark backgrounds */
-    --section-alt: 230 33% 12%;
+    --section-alt: 230 33% 10%;
 
     --sidebar-background: 230 33% 12%;
     --sidebar-foreground: 0 0% 100%;
@@ -127,9 +127,23 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 87, 255, 0.1);
   }
+}
 
-  /* Alternating section backgrounds in dark mode */
-  .dark .section-alt {
-    background-color: #141829;
+/* Section background alternation */
+.sections-container > section:nth-child(even) {
+  background-color: hsl(var(--section-alt));
+  margin-left: -72px;
+  margin-right: -72px;
+  padding-left: 72px;
+  padding-right: 72px;
+  padding-top: 4rem;
+}
+
+@media (max-width: 767px) {
+  .sections-container > section:nth-child(even) {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

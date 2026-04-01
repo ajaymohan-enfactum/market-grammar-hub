@@ -9,7 +9,7 @@ export function TypographySection() {
   return (
     <SectionWrapper id="typography">
       <SectionHeader
-        title="Typography"
+        title={<><span className="text-primary">Typography</span></>}
         subtitle="Clear, dense, and precise. This section defines every approved typeface, weight, size, and typographic technique — including how to handle multi-script SEA content."
       />
 

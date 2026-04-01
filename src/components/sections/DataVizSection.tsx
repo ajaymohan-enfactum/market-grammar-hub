@@ -4,7 +4,7 @@ export function DataVizSection() {
   return (
     <SectionWrapper id="data-viz">
       <SectionHeader
-        title="Data Visualization"
+        title={<>Data <span className="text-primary">Visualization</span></>}
         subtitle="Charts and data displays follow the same data-noir aesthetic. This section covers color mapping, chart types, typography rules, and animation patterns for all data visualizations."
       />
 

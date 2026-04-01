@@ -5,7 +5,7 @@ export function PromptsDeckSection() {
   return (
     <SectionWrapper id="prompts-deck">
       <SectionHeader
-        title="Deck Generation Prompts"
+        title={<>Deck <span className="text-primary">Generation</span> Prompts</>}
         subtitle="Prompts for generating on-brand presentation decks, pitch materials, and slide content using AI tools."
       />
 
