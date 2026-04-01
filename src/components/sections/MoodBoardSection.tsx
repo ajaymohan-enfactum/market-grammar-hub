@@ -7,9 +7,9 @@ import moodGlassSteel from "@/assets/mood-glass-steel.jpg";
 import moodUrbanDensity from "@/assets/mood-urban-density.jpg";
 import moodMarketInfra from "@/assets/mood-market-infra.jpg";
 import moodGeometricPrecision from "@/assets/mood-geometric-precision.jpg";
-import lightSignalFlow from "@/assets/light-signal-flow.jpg";
-import lightMarketPulse from "@/assets/light-market-pulse.jpg";
-import lightTerritoryMap from "@/assets/light-territory-map.jpg";
+import light1 from "@/assets/light-1.jpg";
+import light2 from "@/assets/light-2.jpg";
+import light3 from "@/assets/light-3.jpg";
 import lightDataTerrain from "@/assets/light-data-terrain.jpg";
 import lightIntelligenceLayer from "@/assets/light-intelligence-layer.jpg";
 import lightGrowthVector from "@/assets/light-growth-vector.jpg";
@@ -65,9 +65,9 @@ const prompts = [
 ];
 
 const lightCards = [
-  { label: "Signal Flow", img: lightSignalFlow },
-  { label: "Market Pulse", img: lightMarketPulse },
-  { label: "Territory Map", img: lightTerritoryMap },
+  { label: "Signal Flow", img: light1 },
+  { label: "Market Pulse", img: light2 },
+  { label: "Spectrum Shift", img: light3 },
   { label: "Data Terrain", img: lightDataTerrain },
   { label: "Intelligence Layer", img: lightIntelligenceLayer },
   { label: "Growth Vector", img: lightGrowthVector },
@@ -138,15 +138,13 @@ export function MoodBoardSection() {
 
       {/* Light Presentations grid */}
       {moodTab === "light" && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {lightCards.map((card) => (
-            <div
-              key={card.label}
-              className="rounded-xl relative overflow-hidden flex items-end"
-              style={{ aspectRatio: "3/2" }}
-            >
-              <img src={card.img} alt={card.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-              <span className="relative z-10 text-[10px] uppercase tracking-widest text-white/80 p-3 w-full bg-gradient-to-t from-black/60 to-transparent">
+            <div key={card.label} className="flex flex-col gap-2">
+              <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "3/2" }}>
+                <img src={card.img} alt={card.label} loading="lazy" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-mono-data text-[10px] uppercase tracking-widest text-muted-foreground">
                 {card.label}
               </span>
             </div>
