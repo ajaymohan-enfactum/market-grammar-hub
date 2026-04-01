@@ -5,7 +5,12 @@ export function SectionWrapper({ id, children, alt = false }: { id: string; chil
   return (
     <section
       id={id}
-      className={`scroll-mt-16 pb-16 border-b border-border last:border-b-0 ${alt ? "section-alt -mx-[72px] px-[72px] pt-16" : ""}`}
+      className="scroll-mt-16 pb-16 border-b border-border last:border-b-0"
+      style={alt ? {
+        backgroundColor: "hsl(var(--section-alt))",
+        margin: "0 -72px",
+        padding: "4rem 72px 4rem 72px",
+      } : undefined}
     >
       {children}
     </section>
