@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
 
 export function MotionSection() {
   return (
