@@ -54,16 +54,17 @@ export function MoodBoardSection() {
       {/* Masonry grid */}
       <div className="grid grid-cols-3 gap-3 mb-10">
         {[
-          { label: "Deep Architecture", h: "h-[200px]" },
-          { label: "Signal Grid", h: "h-[280px]" },
-          { label: "Glass & Steel", h: "h-[160px]" },
-          { label: "Urban Density", h: "h-[240px]" },
-          { label: "Market Infrastructure", h: "h-[180px]" },
-          { label: "Terminal Data", h: "h-[260px]" },
-          { label: "Geometric Precision", h: "h-[200px]" },
+          { label: "Deep Architecture", h: "h-[200px]", img: moodDeepArch },
+          { label: "Signal Grid", h: "h-[280px]", img: moodSignalGrid },
+          { label: "Glass & Steel", h: "h-[160px]", img: moodGlassSteel },
+          { label: "Urban Density", h: "h-[240px]", img: moodUrbanDensity },
+          { label: "Market Infrastructure", h: "h-[180px]", img: moodMarketInfra },
+          { label: "Terminal Data", h: "h-[260px]", img: moodTerminalData },
+          { label: "Geometric Precision", h: "h-[200px]", img: moodGeometricPrecision },
         ].map((item) => (
-          <div key={item.label} className={`bg-brand-neutral-700 rounded-lg ${item.h} relative flex items-end p-3`}>
-            <span className="text-[10px] text-brand-neutral-400">{item.label}</span>
+          <div key={item.label} className={`rounded-lg ${item.h} relative overflow-hidden flex items-end`}>
+            <img src={item.img} alt={item.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="relative z-10 text-[10px] text-white/80 p-3 bg-gradient-to-t from-black/60 to-transparent w-full">{item.label}</span>
           </div>
         ))}
       </div>

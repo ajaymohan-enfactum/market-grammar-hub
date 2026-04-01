@@ -60,11 +60,12 @@ export function VisualStyleSection() {
       <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Secondary Abstractions</h3>
       <div className="grid grid-cols-2 gap-4 mb-10">
         {[
-          "Geometric Intersections — Wireframe-like abstractions representing signal flow.",
-          "Linear Signal & Light — Luminescent lines representing territory architecture and data density.",
-        ].map((label) => (
-          <div key={label} className="bg-brand-midnight rounded-lg h-[200px] flex items-end p-4">
-            <span className="text-[11px] text-brand-neutral-400 leading-snug">{label}</span>
+          { label: "Geometric Intersections — Wireframe-like abstractions representing signal flow.", img: visualGeometricIntersect },
+          { label: "Linear Signal & Light — Luminescent lines representing territory architecture and data density.", img: visualLinearSignal },
+        ].map(({ label, img }) => (
+          <div key={label} className="bg-brand-midnight rounded-lg h-[200px] relative overflow-hidden flex items-end">
+            <img src={img} alt={label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="relative z-10 text-[11px] text-white/80 leading-snug p-4 bg-gradient-to-t from-black/60 to-transparent w-full">{label}</span>
           </div>
         ))}
       </div>
