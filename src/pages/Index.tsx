@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { BrandSidebar } from "@/components/BrandSidebar";
+import { SearchPalette } from "@/components/SearchPalette";
 import { navSections } from "@/components/navData";
 import { BrandStorySection } from "@/components/sections/BrandStorySection";
 import { LogoGuidelinesSection } from "@/components/sections/LogoGuidelinesSection";
@@ -21,10 +22,23 @@ const allIds = navSections.flatMap((s) => s.items.map((i) => i.id));
 
 function BrandBookContent() {
   const [activeSection, setActiveSection] = useState(allIds[0]);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const handleNavigate = useCallback((id: string) => {
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+  // ⌘K shortcut
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((v) => !v);
+      }
+    }
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
   useEffect(() => {
@@ -32,7 +46,6 @@ function BrandBookContent() {
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length > 0) {
-          // pick the one closest to top
           visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
           setActiveSection(visible[0].target.id);
         }
