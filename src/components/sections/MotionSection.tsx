@@ -50,7 +50,7 @@ export function MotionSection() {
             ].map(([token, dur, usage, width]) => (
               <tr key={token as string} className="border-b border-border last:border-b-0">
                 <td className="p-3 font-medium text-foreground">{token}</td>
-                <td className="p-3 font-mono-data text-muted">{dur}</td>
+                <td className="p-3"><CopyToken value={dur as string} className="text-[13px] text-muted" /></td>
                 <td className="p-3 text-text-secondary">{usage}</td>
                 <td className="p-3">
                   <div className="h-2 bg-primary rounded-full" style={{ width: `${width}%`, minWidth: width ? 4 : 0 }} />

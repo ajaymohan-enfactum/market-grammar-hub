@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { Copy, Check } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
 
 interface SwatchProps {
   name: string;
@@ -8,27 +6,13 @@ interface SwatchProps {
   usage: string;
 }
 
-function CopyHex({ hex }: { hex: string }) {
-  const [copied, setCopied] = useState(false);
-  return (
-    <button
-      onClick={() => { navigator.clipboard.writeText(hex); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
-      className="inline-flex items-center gap-1 text-[12px] font-mono-data text-muted hover:text-primary transition-colors cursor-pointer"
-      title="Copy hex"
-    >
-      {hex}
-      {copied ? <Check size={11} className="text-brand-emerald" /> : <Copy size={11} className="opacity-0 group-hover:opacity-100 transition-opacity" />}
-    </button>
-  );
-}
-
 function ColorSwatch({ name, hex, usage }: SwatchProps) {
   return (
-    <div className="group bg-surface border border-border rounded-lg overflow-hidden">
+    <div className="bg-surface border border-border rounded-lg overflow-hidden">
       <div className="h-[120px]" style={{ backgroundColor: hex }} />
       <div className="p-3">
         <div className="text-[13px] font-semibold text-foreground">{name}</div>
-        <CopyHex hex={hex} />
+        <CopyToken value={hex} className="text-[12px] text-muted mt-0.5" />
         <div className="text-[11px] text-text-secondary mt-1">{usage}</div>
       </div>
     </div>
