@@ -140,11 +140,13 @@ export function MoodBoardSection() {
       {moodTab === "light" && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
           {lightCards.map((card) => (
-            <div key={card.label} className="flex flex-col gap-2">
-              <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "3/2" }}>
-                <img src={card.img} alt={card.label} loading="lazy" className="w-full h-full object-cover" />
-              </div>
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            <div
+              key={card.label}
+              className="rounded-xl relative overflow-hidden flex items-end"
+              style={{ aspectRatio: "3/2" }}
+            >
+              <img src={card.img} alt={card.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              <span className="relative z-10 text-[10px] uppercase tracking-widest text-white/80 p-3 w-full bg-gradient-to-t from-black/60 to-transparent">
                 {card.label}
               </span>
             </div>
