@@ -93,6 +93,22 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
     }
     setCopied(true);
     if (id) addRecentlyCopied(id, title, tools[0]);
+
+    // Determine section and page from prompt id
+    const isLight = id?.includes("light") ?? false;
+    const section = isLight ? "light_presentations" : "dark_presentations";
+    let page = "image_generation";
+    if (id?.startsWith("prompt-copy")) page = "copy_templates";
+    else if (id?.startsWith("prompt-design")) page = "design_generation";
+    else if (id?.startsWith("prompt-deck")) page = "deck_generation";
+
+    posthog.capture("prompt_copied", {
+      prompt_title: title,
+      tool: tools[0].toLowerCase().replace("-", ""),
+      section,
+      page,
+    });
+
     setTimeout(() => setCopied(false), 2000);
   };
 

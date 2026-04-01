@@ -70,7 +70,7 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
                 return (
                   <button
                     key={item.id}
-                    onClick={() => handleNav(item.id)}
+                    onClick={() => handleNav(item.id, item.label)}
                     className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-[13px] font-medium relative transition-all duration-150 ${
                       active
                         ? "bg-[hsl(220_100%_50%/0.06)] text-primary border-l-2 border-primary"
