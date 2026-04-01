@@ -134,6 +134,14 @@ export function PromptCard({ tool, title, whenToUse, prompt, id }: PromptCardPro
   };
 
   const charCount = prompt.length;
+  const allChecked = checks.every(Boolean);
+
+  const brandCheckLabels = [
+    "Colors match #0057FF / #0A0F1E palette",
+    "Font is IBM Plex Sans or IBM Plex Mono",
+    "No unauthorised stock imagery",
+    "Tone matches Voice & Tone guidelines",
+  ];
 
   return (
     <div
