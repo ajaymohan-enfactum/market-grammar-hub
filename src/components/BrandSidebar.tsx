@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sun, Moon, Search, Menu, X } from "lucide-react";
+import { Sun, Moon, Search, Menu, X, Download } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { EnfactumLogo } from "./EnfactumLogo";
 import { navSections } from "./navData";
@@ -88,6 +88,15 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
 
       {/* Bottom */}
       <div className="px-4 py-4 border-t border-border space-y-2">
+        <a
+          href="/enfactum-brand-guidelines.pdf"
+          download
+          className="flex items-center gap-2 text-[13px] text-text-secondary hover:text-primary transition-all duration-300 w-full"
+          style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+        >
+          <Download size={16} />
+          <span>Download PDF</span>
+        </a>
         <button
           onClick={toggle}
           className="flex items-center gap-2 text-[13px] text-text-secondary hover:text-foreground transition-all duration-300"
