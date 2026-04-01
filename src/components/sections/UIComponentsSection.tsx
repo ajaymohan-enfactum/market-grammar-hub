@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function UIComponentsSection() {
   return (
@@ -9,19 +9,19 @@ export function UIComponentsSection() {
       />
 
       {/* Button styles */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Button Hierarchy</h3>
-      <div className="bg-surface border border-border rounded-lg p-6 mb-10">
+      <Eyebrow className="mb-4">Button Hierarchy</Eyebrow>
+      <div className="brand-card p-6 mb-10">
         <div className="flex items-center gap-4 mb-6">
-          <button className="px-5 py-2.5 bg-brand-blue text-white text-[13px] font-semibold rounded-lg hover:bg-brand-blue-600 transition-colors">
+          <button className="px-5 py-2.5 bg-brand-blue text-white text-[13px] font-semibold rounded-lg hover:bg-brand-blue-600 transition-all duration-200" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
             Primary Action
           </button>
-          <button className="px-5 py-2.5 border border-border text-foreground text-[13px] font-medium rounded-lg hover:bg-elevated transition-colors">
+          <button className="px-5 py-2.5 border border-border text-foreground text-[13px] font-medium rounded-lg hover:bg-elevated transition-all duration-200" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
             Secondary
           </button>
-          <button className="px-5 py-2.5 text-primary text-[13px] font-medium hover:bg-elevated rounded-lg transition-colors">
+          <button className="px-5 py-2.5 text-primary text-[13px] font-medium hover:bg-elevated rounded-lg transition-all duration-200" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
             Ghost
           </button>
-          <button className="px-5 py-2.5 text-destructive text-[13px] font-medium hover:bg-destructive/10 rounded-lg transition-colors">
+          <button className="px-5 py-2.5 text-destructive text-[13px] font-medium hover:bg-destructive/10 rounded-lg transition-all duration-200" style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}>
             Destructive
           </button>
         </div>
@@ -31,12 +31,12 @@ export function UIComponentsSection() {
       </div>
 
       {/* Input fields */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Input Fields</h3>
-      <div className="bg-surface border border-border rounded-lg p-6 mb-10">
+      <Eyebrow className="mb-4">Input Fields</Eyebrow>
+      <div className="brand-card p-6 mb-10">
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="text-[12px] font-medium text-foreground mb-1.5 block">Default Input</label>
-            <div className="h-10 border border-border rounded-lg px-3 flex items-center text-[13px] text-muted">
+            <div className="h-10 border border-border rounded-lg px-3 flex items-center text-[13px] text-muted transition-colors duration-200">
               Placeholder text...
             </div>
           </div>
@@ -53,25 +53,25 @@ export function UIComponentsSection() {
       </div>
 
       {/* Cards */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Card Variants</h3>
+      <Eyebrow className="mb-4">Card Variants</Eyebrow>
       <div className="grid grid-cols-3 gap-4 mb-10">
-        <div className="bg-surface border border-border rounded-lg p-5">
-          <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-muted mb-2">Default Card</div>
+        <div className="brand-card p-5">
+          <Eyebrow className="mb-2">Default Card</Eyebrow>
           <p className="text-[13px] text-text-secondary">Standard surface card with subtle border. Used for content grouping.</p>
         </div>
-        <div className="bg-elevated rounded-lg p-5">
-          <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-muted mb-2">Elevated Card</div>
+        <div className="bg-elevated rounded-xl p-5 transition-colors duration-200">
+          <Eyebrow className="mb-2">Elevated Card</Eyebrow>
           <p className="text-[13px] text-text-secondary">Elevated background for highlighted content or nested sections.</p>
         </div>
-        <div className="border-l-2 border-primary bg-surface rounded-r-lg p-5">
-          <div className="text-[10px] font-semibold tracking-[0.12em] uppercase text-muted mb-2">Accent Card</div>
+        <div className="border-l-2 border-primary bg-surface rounded-r-xl p-5">
+          <Eyebrow className="mb-2">Accent Card</Eyebrow>
           <p className="text-[13px] text-text-secondary">Left border accent for important callouts and quotes.</p>
         </div>
       </div>
 
       {/* Badges */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Badges & Tags</h3>
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <Eyebrow className="mb-4">Badges & Tags</Eyebrow>
+      <div className="brand-card p-6">
         <div className="flex items-center gap-3">
           <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-brand-blue/15 text-brand-blue">Signal</span>
           <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-brand-violet/15 text-brand-violet">Territory</span>

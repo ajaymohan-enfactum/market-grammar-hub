@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function DataVizSection() {
   return (
@@ -9,8 +9,8 @@ export function DataVizSection() {
       />
 
       {/* Color mapping */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Chart Color Mapping</h3>
-      <div className="bg-surface border border-border rounded-lg p-6 mb-10">
+      <Eyebrow className="mb-4">Chart Color Mapping</Eyebrow>
+      <div className="brand-card p-6 mb-10">
         <div className="flex items-center gap-6">
           {[
             { color: "#0057FF", label: "Primary Series" },
@@ -29,21 +29,21 @@ export function DataVizSection() {
       </div>
 
       {/* Chart placeholder */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Chart Examples</h3>
+      <Eyebrow className="mb-4">Chart Examples</Eyebrow>
       <div className="grid grid-cols-2 gap-4 mb-10">
-        <div className="bg-brand-midnight rounded-lg p-6 h-[240px] flex flex-col">
-          <div className="text-[11px] text-brand-neutral-400 mb-2">Bar Chart — Signal Volume</div>
+        <div className="bg-brand-midnight rounded-xl p-6 h-[240px] flex flex-col">
+          <Eyebrow className="text-brand-neutral-400 mb-2">Bar Chart — Signal Volume</Eyebrow>
           <div className="flex-1 flex items-end gap-2 pb-4">
             {[40, 65, 35, 80, 55, 70, 45, 90, 60, 75, 50, 85].map((h, i) => (
-              <div key={i} className="flex-1 rounded-t" style={{ height: `${h}%`, backgroundColor: i === 7 ? "#0057FF" : "#252A47" }} />
+              <div key={i} className="flex-1 rounded-t transition-all duration-200" style={{ height: `${h}%`, backgroundColor: i === 7 ? "#0057FF" : "#252A47", transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }} />
             ))}
           </div>
           <div className="flex justify-between text-[9px] font-mono-data text-brand-neutral-400">
             <span>Jan</span><span>Jun</span><span>Dec</span>
           </div>
         </div>
-        <div className="bg-brand-midnight rounded-lg p-6 h-[240px] flex flex-col justify-center items-center">
-          <div className="text-[11px] text-brand-neutral-400 mb-4 self-start">KPI Card — Metric Display</div>
+        <div className="bg-brand-midnight rounded-xl p-6 h-[240px] flex flex-col justify-center items-center">
+          <Eyebrow className="text-brand-neutral-400 mb-4 self-start">KPI Card — Metric Display</Eyebrow>
           <div className="text-center">
             <div className="font-mono-data text-[48px] font-semibold text-white">2,847</div>
             <div className="text-[12px] text-brand-neutral-400 mt-1">Active Signals</div>
@@ -53,7 +53,7 @@ export function DataVizSection() {
       </div>
 
       {/* Rules */}
-      <div className="bg-surface border border-border rounded-lg p-6">
+      <div className="brand-card p-6">
         <h4 className="text-[15px] font-semibold text-foreground mb-3">Visualization Rules</h4>
         <ul className="space-y-2">
           {[

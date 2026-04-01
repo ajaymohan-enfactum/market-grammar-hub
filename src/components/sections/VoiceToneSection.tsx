@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader } from "../SectionParts";
+import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 export function VoiceToneSection() {
   return (
@@ -9,15 +9,15 @@ export function VoiceToneSection() {
       />
 
       {/* Pull quote */}
-      <div className="border-l-2 border-primary bg-surface rounded-r-lg p-6 mb-10">
+      <div className="border-l-2 border-primary bg-surface rounded-r-xl p-6 mb-10">
         <p className="text-lg font-medium text-foreground leading-relaxed">
           "We communicate the complexity of Asian markets with data-noir precision. We build the pipeline, we don't add to the noise."
         </p>
       </div>
 
       {/* Three registers */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Three Registers</h3>
-      <div className="bg-surface border border-border rounded-lg overflow-hidden mb-10">
+      <Eyebrow className="mb-4">Three Registers</Eyebrow>
+      <div className="brand-card overflow-hidden mb-10">
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-border">
@@ -43,7 +43,7 @@ export function VoiceToneSection() {
       </div>
 
       {/* Writing principles */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Writing Principles</h3>
+      <Eyebrow className="mb-4">Writing Principles</Eyebrow>
       <div className="grid grid-cols-2 gap-4">
         {[
           { title: "Lead with Data", body: "Numbers first, narrative second. Every claim earns its place with evidence." },
@@ -51,7 +51,7 @@ export function VoiceToneSection() {
           { title: "Short Sentences Win", body: "Max 20 words per sentence in product copy. Complexity lives in the data, not the grammar." },
           { title: "Active Voice Always", body: "\"The system processes signals\" not \"Signals are processed by the system.\"" },
         ].map((p) => (
-          <div key={p.title} className="bg-surface border border-border rounded-lg p-5">
+          <div key={p.title} className="brand-card p-5">
             <div className="text-[13px] font-semibold text-foreground mb-1">{p.title}</div>
             <p className="text-[12px] text-text-secondary">{p.body}</p>
           </div>
