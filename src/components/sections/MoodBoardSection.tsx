@@ -65,105 +65,12 @@ const prompts = [
 ];
 
 const lightCards = [
-  {
-    label: "Signal Flow",
-    bg: "linear-gradient(135deg, #0057FF 0%, #7C3AED 40%, #059669 100%)",
-    overlay: (
-      <>
-        {[0, 1, 2, 3].map((i) => (
-          <div
-            key={i}
-            className="absolute"
-            style={{
-              top: 0, left: `${15 + i * 22}%`,
-              width: "1px", height: "141%",
-              background: "rgba(255,255,255,0.15)",
-              transform: "rotate(35deg)", transformOrigin: "top left",
-            }}
-          />
-        ))}
-      </>
-    ),
-  },
-  {
-    label: "Market Pulse",
-    bg: "radial-gradient(ellipse at 30% 40%, #2979FF 0%, #0057FF 30%, #0A0F1E 70%)",
-    overlay: (
-      <>
-        {[60, 100, 140, 180, 220].map((r) => (
-          <div
-            key={r}
-            className="absolute rounded-full border"
-            style={{
-              top: "40%", left: "30%",
-              width: r, height: r,
-              transform: "translate(-50%, -50%)",
-              borderColor: "rgba(255,255,255,0.08)",
-            }}
-          />
-        ))}
-      </>
-    ),
-  },
-  {
-    label: "Territory Map",
-    bg: "linear-gradient(160deg, #059669 0%, #0057FF 35%, #7C3AED 65%, #D97706 100%)",
-    overlay: (
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-    ),
-  },
-  {
-    label: "Data Terrain",
-    bg: "linear-gradient(180deg, #0A0F1E 0%, #0057FF 30%, #2979FF 50%, #059669 70%, #D97706 90%, #fff 100%)",
-    overlay: (
-      <>
-        {[0.05, 0.08, 0.12, 0.15, 0.18, 0.2].map((op, i) => (
-          <div
-            key={i}
-            className="absolute w-full"
-            style={{
-              top: `${12 + i * 15}%`,
-              height: "1px",
-              background: `rgba(255,255,255,${op})`,
-            }}
-          />
-        ))}
-      </>
-    ),
-  },
-  {
-    label: "Intelligence Layer",
-    bg: "conic-gradient(from 200deg at 60% 40%, #7C3AED, #0057FF, #059669, #D97706, #7C3AED)",
-    overlay: (
-      <div
-        className="absolute w-full"
-        style={{
-          top: "30%", height: "2px",
-          background: "rgba(255,255,255,0.3)",
-        }}
-      />
-    ),
-  },
-  {
-    label: "Growth Vector",
-    bg: "linear-gradient(120deg, #D97706 0%, #059669 25%, #0057FF 50%, #7C3AED 75%, #0A0F1E 100%)",
-    overlay: (
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(30deg, transparent, transparent 56px, rgba(255,255,255,0.12) 56px, rgba(255,255,255,0.12) 60px)",
-        }}
-      />
-    ),
-  },
+  { label: "Signal Flow", img: lightSignalFlow },
+  { label: "Market Pulse", img: lightMarketPulse },
+  { label: "Territory Map", img: lightTerritoryMap },
+  { label: "Data Terrain", img: lightDataTerrain },
+  { label: "Intelligence Layer", img: lightIntelligenceLayer },
+  { label: "Growth Vector", img: lightGrowthVector },
 ];
 
 type MoodTab = "dark" | "light";
