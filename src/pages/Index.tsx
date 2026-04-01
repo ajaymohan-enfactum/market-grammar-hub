@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { BrandSidebar } from "@/components/BrandSidebar";
 import { SearchPalette } from "@/components/SearchPalette";
 import { navSections } from "@/components/navData";
+import { QuickCreateSection } from "@/components/sections/QuickCreateSection";
 import { BrandStorySection } from "@/components/sections/BrandStorySection";
 import { LogoGuidelinesSection } from "@/components/sections/LogoGuidelinesSection";
 import { ColorSystemSection } from "@/components/sections/ColorSystemSection";
@@ -12,6 +13,11 @@ import { MoodBoardSection } from "@/components/sections/MoodBoardSection";
 import { MotionSection } from "@/components/sections/MotionSection";
 import { VoiceToneSection } from "@/components/sections/VoiceToneSection";
 import { LinkedInSection } from "@/components/sections/LinkedInSection";
+import { PromptsImageSection } from "@/components/sections/PromptsImageSection";
+import { PromptsCopySection } from "@/components/sections/PromptsCopySection";
+import { PromptsDesignSection } from "@/components/sections/PromptsDesignSection";
+import { PromptsDeckSection } from "@/components/sections/PromptsDeckSection";
+import { PromptsComplianceSection } from "@/components/sections/PromptsComplianceSection";
 import { UIComponentsSection } from "@/components/sections/UIComponentsSection";
 import { DataVizSection } from "@/components/sections/DataVizSection";
 import { InteractionStatesSection } from "@/components/sections/InteractionStatesSection";
@@ -66,6 +72,7 @@ function BrandBookContent() {
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} onNavigate={handleNavigate} />
       <main className="ml-60">
         <div className="max-w-[900px] px-[72px] pt-16 pb-24">
+          <QuickCreateSection onNavigate={handleNavigate} />
           <BrandStorySection />
           <LogoGuidelinesSection />
           <ColorSystemSection />
@@ -75,6 +82,11 @@ function BrandBookContent() {
           <MotionSection />
           <VoiceToneSection />
           <LinkedInSection />
+          <PromptsImageSection />
+          <PromptsCopySection />
+          <PromptsDesignSection />
+          <PromptsDeckSection />
+          <PromptsComplianceSection />
           <UIComponentsSection />
           <DataVizSection />
           <InteractionStatesSection />
