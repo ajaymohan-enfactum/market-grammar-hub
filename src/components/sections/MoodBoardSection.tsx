@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { Copy, Check, Sparkles, Crosshair } from "lucide-react";
+import { Copy, Check, Sparkles } from "lucide-react";
 import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 import moodDeepArch from "@/assets/mood-deep-arch.jpg";
-import moodSignalGrid from "@/assets/mood-signal-grid.jpg";
 import moodGlassSteel from "@/assets/mood-glass-steel.jpg";
 import moodUrbanDensity from "@/assets/mood-urban-density.jpg";
 import moodMarketInfra from "@/assets/mood-market-infra.jpg";
-import moodTerminalData from "@/assets/mood-terminal-data.jpg";
 import moodGeometricPrecision from "@/assets/mood-geometric-precision.jpg";
-import moodDataDensity from "@/assets/mood-data-density.jpg";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -61,8 +58,113 @@ const prompts = [
   },
 ];
 
+const lightCards = [
+  {
+    label: "Signal Flow",
+    bg: "linear-gradient(135deg, #0057FF 0%, #7C3AED 40%, #059669 100%)",
+    overlay: (
+      <>
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="absolute"
+            style={{
+              top: 0, left: `${15 + i * 22}%`,
+              width: "1px", height: "141%",
+              background: "rgba(255,255,255,0.15)",
+              transform: "rotate(35deg)", transformOrigin: "top left",
+            }}
+          />
+        ))}
+      </>
+    ),
+  },
+  {
+    label: "Market Pulse",
+    bg: "radial-gradient(ellipse at 30% 40%, #2979FF 0%, #0057FF 30%, #0A0F1E 70%)",
+    overlay: (
+      <>
+        {[60, 100, 140, 180, 220].map((r) => (
+          <div
+            key={r}
+            className="absolute rounded-full border"
+            style={{
+              top: "40%", left: "30%",
+              width: r, height: r,
+              transform: "translate(-50%, -50%)",
+              borderColor: "rgba(255,255,255,0.08)",
+            }}
+          />
+        ))}
+      </>
+    ),
+  },
+  {
+    label: "Territory Map",
+    bg: "linear-gradient(160deg, #059669 0%, #0057FF 35%, #7C3AED 65%, #D97706 100%)",
+    overlay: (
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+    ),
+  },
+  {
+    label: "Data Terrain",
+    bg: "linear-gradient(180deg, #0A0F1E 0%, #0057FF 30%, #2979FF 50%, #059669 70%, #D97706 90%, #fff 100%)",
+    overlay: (
+      <>
+        {[0.05, 0.08, 0.12, 0.15, 0.18, 0.2].map((op, i) => (
+          <div
+            key={i}
+            className="absolute w-full"
+            style={{
+              top: `${12 + i * 15}%`,
+              height: "1px",
+              background: `rgba(255,255,255,${op})`,
+            }}
+          />
+        ))}
+      </>
+    ),
+  },
+  {
+    label: "Intelligence Layer",
+    bg: "conic-gradient(from 200deg at 60% 40%, #7C3AED, #0057FF, #059669, #D97706, #7C3AED)",
+    overlay: (
+      <div
+        className="absolute w-full"
+        style={{
+          top: "30%", height: "2px",
+          background: "rgba(255,255,255,0.3)",
+        }}
+      />
+    ),
+  },
+  {
+    label: "Growth Vector",
+    bg: "linear-gradient(120deg, #D97706 0%, #059669 25%, #0057FF 50%, #7C3AED 75%, #0A0F1E 100%)",
+    overlay: (
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(30deg, transparent, transparent 56px, rgba(255,255,255,0.12) 56px, rgba(255,255,255,0.12) 60px)",
+        }}
+      />
+    ),
+  },
+];
+
+type MoodTab = "dark" | "light";
+
 export function MoodBoardSection() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [moodTab, setMoodTab] = useState<MoodTab>("dark");
+  const [activePromptTab, setActivePromptTab] = useState(0);
 
   return (
     <SectionWrapper id="mood-board">
@@ -71,44 +173,115 @@ export function MoodBoardSection() {
         subtitle="The curated visual direction. Strict 3D geometric forms, abstract architectural details, solid colors over gradients, zero human subjects."
       />
 
-      {/* Static mood board grid — 3+3+2 layout, no carousel */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
-        {[
-          { label: "Deep Architecture", h: "h-[200px]", img: moodDeepArch },
-          { label: "Signal Grid", h: "h-[280px]", img: moodSignalGrid },
-          { label: "Glass & Steel", h: "h-[160px]", img: moodGlassSteel },
-          { label: "Urban Density", h: "h-[240px]", img: moodUrbanDensity },
-          { label: "Market Infrastructure", h: "h-[180px]", img: moodMarketInfra },
-          { label: "Terminal Data", h: "h-[260px]", img: moodTerminalData },
-          { label: "Geometric Precision", h: "h-[200px]", img: moodGeometricPrecision },
-          { label: "Data Density", h: "h-[200px]", img: moodDataDensity },
-        ].map((item) => (
-          <div key={item.label} className={`rounded-xl ${item.h} relative overflow-hidden flex items-end`}>
-            <img src={item.img} alt={item.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-            <span className="relative z-10 text-[10px] text-white/80 p-3 bg-gradient-to-t from-black/60 to-transparent w-full">{item.label}</span>
-          </div>
+      {/* Mood tab switcher */}
+      <div className="flex gap-2 mb-6">
+        {(["dark", "light"] as const).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setMoodTab(tab)}
+            className={`px-4 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 ${
+              moodTab === tab
+                ? "bg-primary text-primary-foreground"
+                : "border border-border-subtle text-text-secondary hover:text-foreground"
+            }`}
+            style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+          >
+            {tab === "dark" ? "Dark Presentations" : "Light Presentations"}
+          </button>
         ))}
       </div>
 
-      {/* Rules table */}
-      <Eyebrow className="mb-4">Photography & Imagery Rules</Eyebrow>
-      <div className="grid grid-cols-2 gap-4 mb-10">
-        <div className="brand-card p-5">
-          <Eyebrow className="text-brand-emerald mb-3">Do Include</Eyebrow>
-          <ul className="space-y-2 text-[13px] text-text-secondary">
-            <li>• Strict 3D geometric objects (cubes, spheres, sharp edges)</li>
-            <li>• Abstract, minimalist architecture or macro material details</li>
-            <li>• High-contrast shadows, pure black/midnight tones</li>
-            <li>• Electric blue as accent or focal light source</li>
+      {/* Dark Presentations grid */}
+      {moodTab === "dark" && (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+          {/* Row 1: 3 images */}
+          {[
+            { label: "Deep Architecture", img: moodDeepArch },
+            { label: "Glass & Steel", img: moodGlassSteel },
+            { label: "Urban Density", img: moodUrbanDensity },
+          ].map((item) => (
+            <div key={item.label} className="rounded-xl h-[200px] relative overflow-hidden flex items-end">
+              <img src={item.img} alt={item.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              <span className="relative z-10 text-[10px] text-white/80 p-3 bg-gradient-to-t from-black/60 to-transparent w-full">
+                {item.label}
+              </span>
+            </div>
+          ))}
+          {/* Row 2: span-2 + 1 */}
+          <div className="sm:col-span-2 rounded-xl relative overflow-hidden flex items-end" style={{ aspectRatio: "16/9" }}>
+            <img src={moodMarketInfra} alt="Market Infrastructure" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="relative z-10 text-[10px] text-white/80 p-3 bg-gradient-to-t from-black/60 to-transparent w-full">
+              Market Infrastructure
+            </span>
+          </div>
+          <div className="rounded-xl h-[200px] sm:h-auto relative overflow-hidden flex items-end">
+            <img src={moodGeometricPrecision} alt="Geometric Precision" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="relative z-10 text-[10px] text-white/80 p-3 bg-gradient-to-t from-black/60 to-transparent w-full">
+              Geometric Precision
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Light Presentations grid */}
+      {moodTab === "light" && (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+          {lightCards.map((card) => (
+            <div
+              key={card.label}
+              className="rounded-xl relative overflow-hidden flex items-end"
+              style={{ aspectRatio: "4/3", background: card.bg }}
+            >
+              {card.overlay}
+              <span
+                className="relative z-10 text-[12px] font-semibold text-white p-3 w-full"
+                style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+              >
+                {card.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Rules — side by side */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div className="brand-card p-5 border-l-[3px] border-l-primary">
+          <Eyebrow className="mb-3">Dark Presentation Rules</Eyebrow>
+          <Eyebrow className="text-brand-emerald mb-2">Do Include</Eyebrow>
+          <ul className="space-y-1.5 text-[13px] text-text-secondary mb-4">
+            <li>• Midnight base (#0A0F1E) as primary bg</li>
+            <li>• Single electric blue accent light source</li>
+            <li>• Brutalist / architectural forms</li>
+            <li>• High-contrast deep shadows</li>
+            <li>• Abstract geometry, no human subjects</li>
+          </ul>
+          <Eyebrow className="text-destructive mb-2">Do Not Include</Eyebrow>
+          <ul className="space-y-1.5 text-[13px] text-text-secondary">
+            <li>• Warm tones (orange, red, yellow)</li>
+            <li>• People or faces</li>
+            <li>• Soft gradients or bokeh</li>
+            <li>• Generic "tech" metaphors (server racks, binary code, glowing nodes)</li>
+            <li>• Light or white backgrounds</li>
           </ul>
         </div>
-        <div className="brand-card p-5">
-          <Eyebrow className="text-destructive mb-3">Do Not Include</Eyebrow>
-          <ul className="space-y-2 text-[13px] text-text-secondary">
-            <li>• Red or warm colors (orange, bright yellow)</li>
-            <li>• People, faces, or hands in any capacity</li>
-            <li>• Soft gradients or blended watercolor effects</li>
-            <li>• Generic "technology" metaphors (floating nodes, glowing binary code)</li>
+        <div className="brand-card p-5 border-l-[3px] border-l-brand-violet">
+          <Eyebrow className="mb-3">Light Presentation Rules</Eyebrow>
+          <Eyebrow className="text-brand-emerald mb-2">Do Include</Eyebrow>
+          <ul className="space-y-1.5 text-[13px] text-text-secondary mb-4">
+            <li>• Vivid abstract color fields</li>
+            <li>• Multi-color geometric or gradient forms</li>
+            <li>• High energy, non-representational</li>
+            <li>• Clean white or near-white canvas</li>
+            <li>• Bold color contrast with clear focal point</li>
+          </ul>
+          <Eyebrow className="text-destructive mb-2">Do Not Include</Eyebrow>
+          <ul className="space-y-1.5 text-[13px] text-text-secondary">
+            <li>• People, faces, hands</li>
+            <li>• Recognisable corporate environments</li>
+            <li>• Stock technology imagery</li>
+            <li>• Single-color flat fills (must have depth or gradient)</li>
+            <li>• Any image that could belong to a generic B2B brand</li>
           </ul>
         </div>
       </div>
@@ -126,9 +299,9 @@ export function MoodBoardSection() {
           {prompts.map((p, i) => (
             <button
               key={p.tab}
-              onClick={() => setActiveTab(i)}
+              onClick={() => setActivePromptTab(i)}
               className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 ${
-                activeTab === i ? "bg-primary text-primary-foreground" : "bg-elevated text-text-secondary hover:text-foreground"
+                activePromptTab === i ? "bg-primary text-primary-foreground" : "bg-elevated text-text-secondary hover:text-foreground"
               }`}
               style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
             >
@@ -139,17 +312,17 @@ export function MoodBoardSection() {
 
         <div className="brand-card p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[11px] font-mono-data text-muted">{prompts[activeTab].formula}</span>
-            <CopyButton text={prompts[activeTab].text} />
+            <span className="text-[11px] font-mono-data text-muted">{prompts[activePromptTab].formula}</span>
+            <CopyButton text={prompts[activePromptTab].text} />
           </div>
           <pre className="font-mono-data text-[12px] text-text-secondary leading-relaxed whitespace-pre-wrap">
-            {prompts[activeTab].text}
+            {prompts[activePromptTab].text}
           </pre>
         </div>
       </div>
 
       {/* Negative prompt */}
-      <div className="bg-brand-neutral-800 rounded-xl p-5">
+      <div className="bg-brand-midnight rounded-xl p-5">
         <Eyebrow className="text-brand-neutral-400 mb-2">Negative Prompt Cheat Sheet</Eyebrow>
         <pre className="font-mono-data text-[12px] text-brand-neutral-200 leading-relaxed whitespace-pre-wrap">
           Exclude: people, human subjects, faces, hands, red, orange, warm colors, soft gradients, watercolor effects, glowing neon nodes, floating particles, binary code, cybernetic themes, friendly corporate art.
