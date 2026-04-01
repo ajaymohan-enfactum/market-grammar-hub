@@ -14,7 +14,25 @@ function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <button
-      onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
+      onClick={() => {
+        const doCopy = async () => {
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+          }
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        };
+        doCopy();
+      }}
       className="flex items-center gap-1.5 text-[12px] text-primary hover:text-highlight transition-colors duration-200"
       style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
     >
