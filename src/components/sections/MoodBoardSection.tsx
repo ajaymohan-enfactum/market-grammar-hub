@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Copy, Check, Sparkles } from "lucide-react";
+import posthog from "posthog-js";
 import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 
 import moodDeepArch from "@/assets/mood-deep-arch.jpg";
@@ -91,7 +92,10 @@ export function MoodBoardSection() {
         {(["dark", "light"] as const).map((tab) => (
           <button
             key={tab}
-            onClick={() => setMoodTab(tab)}
+            onClick={() => {
+              setMoodTab(tab);
+              posthog.capture("mood_board_tab_changed", { tab });
+            }}
             className={`px-4 py-1.5 rounded-lg text-[12px] font-medium transition-all duration-200 ${
               moodTab === tab
                 ? "bg-primary text-primary-foreground"

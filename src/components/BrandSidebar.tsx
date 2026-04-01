@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sun, Moon, Search, Menu, X, Download } from "lucide-react";
+import posthog from "posthog-js";
 import { useTheme } from "./ThemeProvider";
 import { EnfactumLogo } from "./EnfactumLogo";
 import { navSections } from "./navData";
@@ -14,7 +15,8 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
   const { theme, toggle } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleNav = (id: string) => {
+  const handleNav = (id: string, label: string) => {
+    posthog.capture("nav_section_clicked", { section_name: label });
     onNavigate(id);
     setMobileOpen(false);
   };
@@ -68,7 +70,7 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
                 return (
                   <button
                     key={item.id}
-                    onClick={() => handleNav(item.id)}
+                    onClick={() => handleNav(item.id, item.label)}
                     className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-[13px] font-medium relative transition-all duration-150 ${
                       active
                         ? "bg-[hsl(220_100%_50%/0.06)] text-primary border-l-2 border-primary"
