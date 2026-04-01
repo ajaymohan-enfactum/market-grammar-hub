@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader, CopyToken } from "../SectionParts";
+import { SectionWrapper, SectionHeader, CopyToken, Eyebrow } from "../SectionParts";
 
 export function MotionSection() {
   return (
@@ -9,14 +9,14 @@ export function MotionSection() {
       />
 
       {/* Easing curves */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Easing Curves</h3>
+      <Eyebrow className="mb-4">Easing Curves</Eyebrow>
       <div className="grid grid-cols-3 gap-4 mb-10">
         {[
           { name: "Enter — Decelerate", curve: "cubic-bezier(0.0, 0.0, 0.2, 1.0)", desc: "Fast start, smooth landing. Elements entering screen.", anim: "animate-dot-decel" },
           { name: "Exit — Accelerate", curve: "cubic-bezier(0.4, 0.0, 1.0, 1.0)", desc: "Slow start, sharp departure. Elements leaving screen.", anim: "animate-dot-accel" },
           { name: "Standard", curve: "cubic-bezier(0.4, 0.0, 0.2, 1.0)", desc: "Balanced state changes within screen.", anim: "animate-dot-standard" },
         ].map((c) => (
-          <div key={c.name} className="bg-surface border border-border rounded-lg p-5">
+          <div key={c.name} className="brand-card p-5">
             <div className="text-[13px] font-semibold text-foreground mb-1">{c.name}</div>
             <CopyToken value={c.curve} className="text-[11px] text-muted mb-3" />
             <div className="relative h-3 bg-elevated rounded-full mb-3">
@@ -28,8 +28,8 @@ export function MotionSection() {
       </div>
 
       {/* Duration scale */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Duration Scale</h3>
-      <div className="bg-surface border border-border rounded-lg overflow-hidden mb-10">
+      <Eyebrow className="mb-4">Duration Scale</Eyebrow>
+      <div className="brand-card overflow-hidden mb-10">
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-border">
@@ -62,15 +62,15 @@ export function MotionSection() {
       </div>
 
       {/* Motion principles */}
-      <h3 className="text-xs font-semibold tracking-[0.12em] uppercase text-muted mb-4">Motion Principles</h3>
+      <Eyebrow className="mb-4">Motion Principles</Eyebrow>
       <div className="grid grid-cols-2 gap-4">
         {[
           { title: "Data Enters Sequentially", body: "Metrics stagger in at 40ms intervals. Never simultaneous." },
           { title: "Numbers Count Up", body: "Metric values animate from zero on first render. 300ms ease-out." },
           { title: "Glow is Alive", body: "Hover glows pulse at 2s interval. Never static." },
-          { title: "Cards Lift", body: "hover: translateY(-4px) + elevated shadow. No bounce, no spring." },
+          { title: "Cards Lift", body: "hover: translateY(-2px) + elevated shadow. No bounce, no spring." },
         ].map((p) => (
-          <div key={p.title} className="bg-surface border border-border rounded-lg p-5">
+          <div key={p.title} className="brand-card p-5">
             <div className="text-[13px] font-semibold text-foreground mb-1">{p.title}</div>
             <p className="text-[12px] text-text-secondary">{p.body}</p>
           </div>
