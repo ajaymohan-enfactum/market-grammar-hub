@@ -45,12 +45,13 @@ export function VisualStyleSection() {
 
       <div className="grid grid-cols-3 gap-4 mb-10">
         {[
-          "Primary 3D Elements — Immersive, abstract 3D blocks and market infrastructure.",
-          "Market Architecture — Expansive structural environments suggesting infinite scale.",
-          "Structural Patterns — Repeating geometric patterns reinforcing stability and signal capture.",
-        ].map((label) => (
-          <div key={label} className="bg-brand-midnight rounded-lg h-[300px] flex items-end p-4">
-            <span className="text-[11px] text-brand-neutral-400 leading-snug">{label}</span>
+          { label: "Primary 3D Elements — Immersive, abstract 3D blocks and market infrastructure.", img: visualPrimary3d },
+          { label: "Market Architecture — Expansive structural environments suggesting infinite scale.", img: visualMarketArch },
+          { label: "Structural Patterns — Repeating geometric patterns reinforcing stability and signal capture.", img: visualStructural },
+        ].map(({ label, img }) => (
+          <div key={label} className="bg-brand-midnight rounded-lg h-[300px] relative overflow-hidden flex items-end">
+            <img src={img} alt={label} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="relative z-10 text-[11px] text-white/80 leading-snug p-4 bg-gradient-to-t from-black/60 to-transparent w-full">{label}</span>
           </div>
         ))}
       </div>
