@@ -1,4 +1,4 @@
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Search } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { EnfactumLogo } from "./EnfactumLogo";
 import { navSections } from "./navData";
@@ -6,6 +6,7 @@ import { navSections } from "./navData";
 interface SidebarProps {
   activeSection: string;
   onNavigate: (id: string) => void;
+  onOpenSearch: () => void;
 }
 
 export function BrandSidebar({ activeSection, onNavigate }: SidebarProps) {
