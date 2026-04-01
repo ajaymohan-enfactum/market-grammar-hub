@@ -64,29 +64,29 @@ Negative: people, gradients, orange, warm, glowing, neon, bokeh, soft`}
           <PromptCard
             id="prompt-mj-light-linkedin"
             tool="Midjourney"
-            title="LinkedIn Post Background — Vibrant Abstract"
-            whenToUse="Light-themed LinkedIn carousel posts and article headers for high-energy messaging."
-            prompt={`/imagine prompt: abstract flowing color field composition, vivid gradients of electric blue #0057FF, violet #7C3AED, and emerald #10B981 blending across a clean white canvas, dynamic geometric ribbons and curved planes creating depth, non-representational, no text, no people, bold color contrast with luminous focal point, modern abstract art style, 8k --ar 16:9 --style raw --v 6.1
+            title="LinkedIn Post Background — Prismatic Light"
+            whenToUse="Backgrounds for LinkedIn carousel posts, article headers, light-mode contexts."
+            prompt={`/imagine prompt: prismatic color field, clean white canvas, intersecting geometric planes in electric blue #0057FF and full-spectrum gradients, sharp angular forms, non-representational, no people, no text, high chroma saturation, precision geometry, B2B editorial, bold focal plane --ar 16:9 --style raw --v 6.1
 
-Negative: people, faces, hands, corporate environments, stock imagery, flat single-color fills, dark backgrounds, binary code, server racks, warm orange, red`}
+Negative: midnight tones, warm brown, soft bokeh, watercolor, organic blobs, corporate offices, neon glow`}
           />
           <PromptCard
             id="prompt-mj-light-event"
             tool="Midjourney"
-            title="Event Backdrop — Prismatic Energy"
-            whenToUse="Conference stages and physical brand environments for light-themed events."
-            prompt={`/imagine prompt: large-scale abstract prismatic composition, overlapping translucent geometric planes in electric blue #0057FF, violet #7C3AED, and amber #F59E0B, white background with subtle depth, bold intersecting color bands creating movement and energy, no people, no text, photorealistic glass-like refractions, high-energy corporate abstract, 8k --ar 16:9 --style raw --v 6.1
+            title="Event Backdrop — Color Architecture"
+            whenToUse="Conference stage, and physical brand environments in light mode."
+            prompt={`/imagine prompt: color planes intersecting at sharp angles, vivid electric blue #0057FF and clean spectral forms, white ground plane, non-representational abstract architecture, no signage, no people, high contrast color blocks, B2B editorial precision, bold single focal point --ar 16:9 --style raw --v 6.1
 
-Negative: people, faces, dark backgrounds, midnight blue, black, corporate stock, bokeh, soft watercolor, low contrast`}
+Negative: soft gradients, dark backgrounds, neon glow, cyberpunk, watercolor, friendly corporate`}
           />
           <PromptCard
             id="prompt-mj-light-social"
             tool="Midjourney"
-            title="Social Media Square — Color Pulse"
-            whenToUse="Instagram posts and social graphics for light-themed brand moments."
-            prompt={`/imagine prompt: bold abstract color burst, concentric geometric forms radiating from center, vivid spectrum of blue #0057FF through violet #7C3AED to emerald #10B981, clean white negative space, sharp edges meeting smooth gradients, non-representational, high energy, modern graphic art, no text, no people --ar 1:1 --style raw --v 6.1
+            title="Social Media Square — Color Grid"
+            whenToUse="Social media avatars, and square format graphics in light mode."
+            prompt={`/imagine prompt: abstract color grid on clean white background, vivid electric blue #0057FF and full-spectrum accent planes, mathematical grid lines, sharp angular forms, non-representational, no text, no people, bold color contrast, minimal depth, editorial precision --ar 1:1 --style raw --v 6.1
 
-Negative: people, faces, dark backgrounds, flat fills, corporate stock, binary code, warm red, orange`}
+Negative: dark backgrounds, warm gradients, neon particles, bokeh, soft lighting, organic shapes`}
           />
         </div>
       )}
