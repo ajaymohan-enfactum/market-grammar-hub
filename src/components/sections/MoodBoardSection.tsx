@@ -2,6 +2,14 @@ import { useState } from "react";
 import { Copy, Check, Sparkles } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "../SectionParts";
 
+import moodDeepArch from "@/assets/mood-deep-arch.jpg";
+import moodSignalGrid from "@/assets/mood-signal-grid.jpg";
+import moodGlassSteel from "@/assets/mood-glass-steel.jpg";
+import moodUrbanDensity from "@/assets/mood-urban-density.jpg";
+import moodMarketInfra from "@/assets/mood-market-infra.jpg";
+import moodTerminalData from "@/assets/mood-terminal-data.jpg";
+import moodGeometricPrecision from "@/assets/mood-geometric-precision.jpg";
+
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   return (
