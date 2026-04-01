@@ -74,7 +74,7 @@ function BrandBookContent() {
       <BrandSidebar activeSection={activeSection} onNavigate={handleNavigate} onOpenSearch={() => setSearchOpen(true)} />
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} onNavigate={handleNavigate} />
       <main className="md:ml-60">
-        <div className="max-w-[900px] px-4 sm:px-8 md:px-[72px] pt-16 pb-24">
+        <div className="sections-container max-w-[900px] px-4 sm:px-8 md:px-[72px] pt-16 pb-24">
           <QuickCreateSection onNavigate={handleNavigate} />
           <BrandStorySection />
           <LogoGuidelinesSection />
