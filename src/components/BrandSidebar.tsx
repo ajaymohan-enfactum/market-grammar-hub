@@ -100,7 +100,11 @@ export function BrandSidebar({ activeSection, onNavigate, onOpenSearch }: Sideba
           <span>Download PDF</span>
         </a>
         <button
-          onClick={toggle}
+          onClick={() => {
+            const newTheme = theme === "light" ? "dark" : "light";
+            toggle();
+            posthog.capture("theme_toggled", { theme: newTheme });
+          }}
           className="flex items-center gap-2 text-[13px] text-text-secondary hover:text-foreground transition-all duration-300"
           style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
         >
