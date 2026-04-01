@@ -12,6 +12,7 @@ export function PromptsCopySection() {
       <Eyebrow className="mb-4">Outbound & Sales</Eyebrow>
       <div className="space-y-4 mb-10">
         <PromptCard
+          id="prompt-cold-email"
           tool="Claude"
           title="Write a Cold Outreach Email"
           whenToUse="SDR outbound, founder-led sales, LinkedIn InMail."
@@ -32,6 +33,7 @@ Voice rules:
 - Subject line: max 6 words, data-first, no clickbait`}
         />
         <PromptCard
+          id="prompt-objection"
           tool="Claude"
           title="Draft an Objection Response"
           whenToUse="When a prospect pushes back during sales conversations."
@@ -53,6 +55,7 @@ Rules:
 - Must include at least one number`}
         />
         <PromptCard
+          id="prompt-linkedin-dm"
           tool="Claude"
           title="Write a Cold LinkedIn DM"
           whenToUse="Personal LinkedIn outreach to prospects."
@@ -71,6 +74,7 @@ Rules:
       <Eyebrow className="mb-4">Marketing Content</Eyebrow>
       <div className="space-y-4 mb-10">
         <PromptCard
+          id="prompt-linkedin-contrarian"
           tool="Claude"
           title="Write a LinkedIn Post — Contrarian Insight"
           whenToUse="Company page or founder personal LinkedIn."
@@ -92,6 +96,7 @@ Rules:
 - End with a question that invites real answers`}
         />
         <PromptCard
+          id="prompt-website-hero"
           tool="Claude"
           title="Write Website Hero Copy"
           whenToUse="Landing pages, product pages, campaign pages."
@@ -110,6 +115,7 @@ Rules:
 - The CTA must describe what happens when you click it`}
         />
         <PromptCard
+          id="prompt-proposal-intro"
           tool="Claude"
           title="Write a Proposal Introduction"
           whenToUse="Opening paragraph of sales proposals and SOWs."
@@ -132,6 +138,7 @@ Rules:
       <Eyebrow className="mb-4">Brand & Product</Eyebrow>
       <div className="space-y-4">
         <PromptCard
+          id="prompt-capability-pillar"
           tool="Claude"
           title="Describe a Capability Pillar"
           whenToUse="Product pages, sales decks, capability overview sections."

@@ -14,7 +14,7 @@ export function PromptsImageSection() {
         subtitle="Production-ready prompts for every image context. Pick the tool, copy the prompt, generate on-brand visuals in one shot."
       />
 
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6 flex-wrap">
         {tabs.map((t) => (
           <button
             key={t}
@@ -32,6 +32,7 @@ export function PromptsImageSection() {
       {activeTab === "Midjourney" && (
         <div className="space-y-4">
           <PromptCard
+            id="prompt-linkedin-hero-bg"
             tool="Midjourney"
             title="LinkedIn Post Background — Geometric Dark"
             whenToUse="Document backgrounds for LinkedIn carousel posts and article headers."
@@ -40,6 +41,7 @@ export function PromptsImageSection() {
 Negative: people, faces, orange, red, warm tones, soft gradients, glowing particles, binary code, cyberpunk, neon, watercolor, bokeh`}
           />
           <PromptCard
+            id="prompt-event-backdrop"
             tool="Midjourney"
             title="Event Backdrop — Scale & Authority"
             whenToUse="Conference stages, event signage, and physical brand environments."
@@ -48,6 +50,7 @@ Negative: people, faces, orange, red, warm tones, soft gradients, glowing partic
 Negative: people, warm colors, orange, red, organic shapes, trees, sky, watercolor, friendly corporate`}
           />
           <PromptCard
+            id="prompt-social-square"
             tool="Midjourney"
             title="Social Media Square — Data Grid"
             whenToUse="Instagram posts, social media avatars, and square format graphics."
@@ -61,12 +64,14 @@ Negative: people, gradients, orange, warm, glowing, neon, bokeh, soft`}
       {activeTab === "Ideogram" && (
         <div className="space-y-4">
           <PromptCard
+            id="prompt-data-report-bg"
             tool="Ideogram"
             title="Data Report Background"
             whenToUse="Infographic backgrounds, report covers, and document headers."
             prompt={`A dark, minimalist abstract background for a B2B data report. Deep midnight blue (#0A0F1E) base. Subtle geometric grid lines visible at low opacity. One sharp electric blue accent line diagonal across frame. Architectural, cold, precise. Suitable for text overlay. No gradients, no people, no warm colors. Style: corporate minimalist, data-noir. Aspect ratio: 16:9`}
           />
           <PromptCard
+            id="prompt-territory-map"
             tool="Ideogram"
             title="Territory Map Visual"
             whenToUse="SEA market coverage visuals, territory breakdowns."
@@ -80,18 +85,21 @@ Negative: people, gradients, orange, warm, glowing, neon, bokeh, soft`}
           <Eyebrow className="mb-2">Foundation / Pathway / Monument Frameworks</Eyebrow>
           <p className="text-[13px] text-text-secondary mb-4">These are the three core Gemini prompt frameworks from the Mood Board. Each produces a distinct visual category.</p>
           <PromptCard
+            id="prompt-gemini-foundation"
             tool="Gemini"
             title="The Foundation — Data & Structure"
             whenToUse="Primary hero images, landing page backgrounds, product screenshots."
             prompt={`A photorealistic macro shot of 3D geometric cubes arranged in a rigid, asymmetrical grid. The background is pure midnight blue (#0A0F1E) fading into black. The cubes are made of matte graphite and dark tinted glass. A single, sharp directional electric blue light (#2979FF) casts hard, defined shadows. Architectural rendering style, highly detailed. Exclude all people, gradients, soft lighting, glowing neon nodes, red colors, and organic shapes.`}
           />
           <PromptCard
+            id="prompt-gemini-pathway"
             tool="Gemini"
             title="The Pathway — Strategy & Flow"
             whenToUse="Process diagrams, strategy visuals, flow illustrations."
             prompt={`Abstract 3D structural lines and geometric pathways intersecting cleanly in a pitch-dark void. The primary colors are deep solid midnight blue and absolute black. Minimalist, brutalist design. Accents of sharp electric blue light hit the edges of the structures, casting hard shadows. Precise, mathematical, corporate minimalism. Exclude binary code, cybernetic themes, soft curves, people, and warm colors.`}
           />
           <PromptCard
+            id="prompt-gemini-monument"
             tool="Gemini"
             title="The Monument — Scale & Authority"
             whenToUse="Keynote backgrounds, executive presentations, brand statements."
@@ -103,6 +111,7 @@ Negative: people, gradients, orange, warm, glowing, neon, bokeh, soft`}
       {activeTab === "DALL-E" && (
         <div className="space-y-4">
           <PromptCard
+            id="prompt-blog-header"
             tool="DALL-E"
             title="Blog Post Header Image"
             whenToUse="Blog headers, newsletter banners, content marketing visuals."

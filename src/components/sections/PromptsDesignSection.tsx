@@ -12,6 +12,7 @@ export function PromptsDesignSection() {
       <Eyebrow className="mb-4">Component Generation</Eyebrow>
       <div className="space-y-4 mb-10">
         <PromptCard
+          id="prompt-kpi-card"
           tool={["v0", "Lovable"]}
           title="Build a KPI Metric Card"
           whenToUse="Dashboard widgets, report summaries, executive views."
@@ -31,6 +32,7 @@ Props: value: number, label: string, delta: number, deltaLabel: string
 Use Tailwind CSS. No external component libraries.`}
         />
         <PromptCard
+          id="prompt-data-table"
           tool={["v0", "Lovable"]}
           title="Build a Dense Data Table"
           whenToUse="Signal feeds, territory lists, pipeline views."
@@ -51,6 +53,7 @@ Props: columns: Column[], data: Row[], onRowClick?: (row) => void
 Use Tailwind CSS. Support both light and dark mode.`}
         />
         <PromptCard
+          id="prompt-dashboard"
           tool="Lovable"
           title="Build a Full Dashboard Layout"
           whenToUse="Starting a new dashboard page or admin view."
@@ -78,6 +81,7 @@ Use Tailwind CSS. Responsive — stack to single column on mobile.`}
       <Eyebrow className="mb-4">Token & Config Generation</Eyebrow>
       <div className="space-y-4">
         <PromptCard
+          id="prompt-color-token"
           tool="Claude"
           title="Generate Color Token Config"
           whenToUse="Starting a new project or microsite."
@@ -96,6 +100,7 @@ Light mode: bg-primary #F8F9FC, bg-secondary #FFFFFF, bg-surface #EEF1F8, text-p
 Output as a single :root CSS block plus [data-theme='dark'] override block. Then generate the matching tailwind.config.ts colors extension.`}
         />
         <PromptCard
+          id="prompt-motion-token"
           tool={["Claude", "v0"]}
           title="Generate Motion Token CSS"
           whenToUse="When building any Enfactum React component that requires animation."
