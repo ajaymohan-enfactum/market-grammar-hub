@@ -22,7 +22,7 @@ function highlightVariables(text: string) {
   return parts.map((part, i) => {
     if (part.startsWith("[") && part.endsWith("]")) {
       return (
-        <span key={i} className="px-1 py-0.5 rounded bg-primary/10 text-primary font-semibold">
+        <span key={i} className="px-1 py-[1px] rounded-[3px] bg-primary/[0.08] text-primary font-semibold">
           {part}
         </span>
       );
