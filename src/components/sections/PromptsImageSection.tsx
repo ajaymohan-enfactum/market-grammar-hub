@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SectionWrapper, SectionHeader, Eyebrow } from "../SectionParts";
 import { PromptCard } from "../PromptCard";
 
-const tabs = ["Midjourney", "Ideogram", "Gemini", "DALL-E", "Claude", "Flux"] as const;
+const tabs = ["Midjourney", "Ideogram", "Gemini", "DALL-E", "Claude", "Flux", "Canva"] as const;
 
 export function PromptsImageSection() {
   const [activeTab, setActiveTab] = useState<string>("Midjourney");
