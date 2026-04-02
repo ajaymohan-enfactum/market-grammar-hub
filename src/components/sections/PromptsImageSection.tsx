@@ -336,6 +336,56 @@ Art direct a 1:1 social media square. White field, vivid electric blue geometric
           />
         </div>
       )}
+
+      {activeTab === "Canva" && (
+        <div className="space-y-4">
+          <Eyebrow>Dark Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-canva-dark-linkedin"
+            tool="Canva"
+            title="LinkedIn Post Background — Geometric Dark"
+            whenToUse="LinkedIn carousel posts, article headers, and banner backgrounds in dark mode."
+            prompt={`Create a presentation background in Canva using a deep midnight navy (#0A0F1E) base. Add sharp geometric shapes — intersecting angular planes and clean straight lines — in electric blue (#0057FF) at 80% opacity. Use a single bold diagonal composition dividing the canvas. No text, no people, no stock photos, no organic shapes. Style: brutalist, editorial, B2B corporate. Dimensions: 1920×1080 (16:9). Export as PNG at highest quality.`}
+          />
+          <PromptCard
+            id="prompt-canva-dark-deck"
+            tool="Canva"
+            title="Deck Cover — Prismatic Dark"
+            whenToUse="Presentation deck covers and title slide backgrounds in dark mode."
+            prompt={`Design a presentation title slide background in Canva. Midnight navy (#0A0F1E) base with a prismatic light refraction effect using electric blue (#0057FF) and cool white highlights. Sharp angular glass-like planes creating depth. No text overlays, no people, no logos, no warm colors. Cold corporate aesthetic, high contrast, architectural precision. Dimensions: 1920×1080 (16:9). Export as PNG.`}
+          />
+          <PromptCard
+            id="prompt-canva-dark-social"
+            tool="Canva"
+            title="Social Square — Grid Dark"
+            whenToUse="Instagram posts and square format social media graphics in dark mode."
+            prompt={`Create a 1080×1080 square social media graphic in Canva. Dark graphite background (#0A0F1E). Add a precision geometric grid pattern using electric blue (#0057FF) lines at 15% opacity with one bold focal grid intersection at full opacity. Mathematical, minimal, no text, no people, no organic shapes, no gradients. Brutalist data infrastructure aesthetic. Export as PNG.`}
+          />
+
+          <Eyebrow>Light Presentations</Eyebrow>
+          <PromptCard
+            id="prompt-canva-light-linkedin"
+            tool="Canva"
+            title="LinkedIn Post Background — Spectral Light"
+            whenToUse="LinkedIn carousel posts, article headers, and banner backgrounds in light mode."
+            prompt={`Create a presentation background in Canva on a clean white (#FFFFFF) canvas. Add intersecting geometric planes using electric blue (#0057FF) and soft spectral gradient accents. Sharp angular forms, non-representational abstract composition. No text, no people, no dark backgrounds, no organic shapes. High chroma, editorial precision, B2B corporate feel. Dimensions: 1920×1080 (16:9). Export as PNG at highest quality.`}
+          />
+          <PromptCard
+            id="prompt-canva-light-deck"
+            tool="Canva"
+            title="Deck Cover — Color Architecture"
+            whenToUse="Presentation deck covers and title slide backgrounds in light mode."
+            prompt={`Design a light-mode presentation cover in Canva. White base with bold architectural color blocks in electric blue (#0057FF) and full-spectrum accent tones. Clean geometric planes, sharp edges, layered transparency effects. No text, no people, no logos, no dark backgrounds. Bright, confident, editorial. Dimensions: 1920×1080 (16:9). Export as PNG.`}
+          />
+          <PromptCard
+            id="prompt-canva-light-social"
+            tool="Canva"
+            title="Social Square — Color Grid"
+            whenToUse="Instagram posts and square format social media graphics in light mode."
+            prompt={`Create a 1080×1080 square graphic in Canva on a white background. Add a vivid geometric grid using electric blue (#0057FF) and full-spectrum color accents. Mathematical grid lines, sharp angular forms, non-representational. No text, no people, no dark backgrounds, no organic shapes. Bold color contrast, minimal depth, editorial precision. Export as PNG.`}
+          />
+        </div>
+      )}
     </SectionWrapper>
   );
 }
