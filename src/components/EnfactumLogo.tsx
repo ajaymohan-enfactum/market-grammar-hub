@@ -1,5 +1,6 @@
 import logoFull from "@/assets/enfactum-logo.webp";
 import logoFact from "@/assets/enfactum-fact-mark.webp";
+import logoFullDark from "@/assets/enfactum-logo-dark.webp";
 
 export function EnfactumLogo({ size = 24, className = "" }: { size?: number; className?: string }) {
   // Image has black "en/um" + blue "fact". Use directly on light theme.
@@ -13,14 +14,13 @@ export function EnfactumLogo({ size = 24, className = "" }: { size?: number; cla
         className="block dark:hidden select-none"
         draggable={false}
       />
-      <span
-        className="hidden dark:inline-flex font-bold tracking-tight"
-        style={{ fontSize: size }}
-      >
-        <span className="text-white">en</span>
-        <span className="text-brand-blue">fact</span>
-        <span className="text-white">um</span>
-      </span>
+      <img
+        src={logoFullDark}
+        alt="enfactum"
+        style={{ height: size, width: "auto" }}
+        className="hidden dark:block select-none"
+        draggable={false}
+      />
     </span>
   );
 }
