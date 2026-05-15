@@ -1,6 +1,8 @@
 import { Download, Check, X } from "lucide-react";
 import { SectionWrapper, SectionHeader, Eyebrow, CopyToken } from "../SectionParts";
 import { EnfactumLogo, SymbolMark } from "../EnfactumLogo";
+import logoFull from "@/assets/enfactum-logo.webp";
+import logoFact from "@/assets/enfactum-fact-mark.webp";
 
 export function LogoGuidelinesSection() {
   return (
