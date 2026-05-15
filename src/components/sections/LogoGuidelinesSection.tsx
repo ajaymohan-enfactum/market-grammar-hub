@@ -42,11 +42,11 @@ export function LogoGuidelinesSection() {
             <span className="text-white">en</span><span className="text-brand-blue">fact</span><span className="text-white">um</span>
           </span>
         </div>
-        <div className="bg-elevated border border-border-subtle rounded-xl flex items-center justify-center h-[140px]">
-          <EnfactumLogo size={32} />
+        <div className="bg-white border border-border-subtle rounded-xl flex items-center justify-center h-[140px]">
+          <img src={logoFull} alt="enfactum" className="h-9 w-auto select-none" draggable={false} />
         </div>
-        <div className="bg-brand-midnight rounded-xl flex items-center justify-center h-[140px]">
-          <SymbolMark size={40} />
+        <div className="bg-white rounded-xl flex items-center justify-center h-[140px]">
+          <img src={logoFact} alt="fact" className="h-12 w-auto select-none" draggable={false} />
         </div>
       </div>
       <div className="grid grid-cols-3 gap-4 mb-10">
