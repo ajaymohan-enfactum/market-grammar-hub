@@ -3,6 +3,7 @@ import { SectionWrapper, SectionHeader, Eyebrow, CopyToken } from "../SectionPar
 import { EnfactumLogo, SymbolMark } from "../EnfactumLogo";
 import logoFull from "@/assets/enfactum-logo.webp";
 import logoFact from "@/assets/enfactum-fact-mark.webp";
+import logoFullDark from "@/assets/enfactum-logo-dark.webp";
 
 export function LogoGuidelinesSection() {
   return (
@@ -25,11 +26,7 @@ export function LogoGuidelinesSection() {
 
       {/* Primary display */}
       <div className="mb-4 bg-brand-midnight rounded-xl flex items-center justify-center min-h-[200px]">
-        <span className="font-bold text-[64px] tracking-tight">
-          <span className="text-white">en</span>
-          <span className="text-brand-blue">fact</span>
-          <span className="text-white">um</span>
-        </span>
+        <img src={logoFullDark} alt="enfactum" className="h-16 w-auto select-none" draggable={false} />
       </div>
       <p className="text-[12px] text-muted mb-10">Primary wordmark on dark background — the default and preferred usage.</p>
 
@@ -40,9 +37,7 @@ export function LogoGuidelinesSection() {
       </p>
       <div className="grid grid-cols-3 gap-4 mb-3">
         <div className="bg-brand-midnight rounded-xl flex items-center justify-center h-[140px]">
-          <span className="font-bold text-[32px] tracking-tight">
-            <span className="text-white">en</span><span className="text-brand-blue">fact</span><span className="text-white">um</span>
-          </span>
+          <img src={logoFullDark} alt="enfactum" className="h-9 w-auto select-none" draggable={false} />
         </div>
         <div className="bg-white border border-border-subtle rounded-xl flex items-center justify-center h-[140px]">
           <img src={logoFull} alt="enfactum" className="h-9 w-auto select-none" draggable={false} />
