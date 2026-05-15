@@ -80,7 +80,7 @@ export function BrandStorySection() {
         <Eyebrow className="mb-4">Positioning Statement</Eyebrow>
         <div className="bg-brand-midnight rounded-xl p-10 text-center mb-6">
           <p className="text-2xl font-bold text-white leading-relaxed">
-            "The Bloomberg Terminal of SEA GTM.{" "}
+            "The Marketing Terminal of SEA GTM.{" "}
             <span className="text-brand-electric">Dense. Precise. Locally fluent.</span>"
           </p>
         </div>
